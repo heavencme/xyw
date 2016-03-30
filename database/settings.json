@@ -1,0 +1,7 @@
+{ 
+	"cookieSecret": "myblog_mysql",   
+	"dbname": "ds_platform",   
+	"host": "localhost",  
+	"username": "root",  
+	"password": "199139wb"  
+}   

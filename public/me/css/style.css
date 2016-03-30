@@ -1,0 +1,185 @@
+.selected{
+    background: #0088cc; 
+}
+
+body{
+    text-shadow: 0 0.09em 0 rgba(0,0,0,.15);
+    background: url("../img/back.png");
+    min-width:960px;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+    color: DarkRed;
+}
+
+table{
+    height: 100%;
+    width: 100%;
+    border-color: gray;
+    display: table;
+}
+
+tr{
+    width: 100%;
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+input{
+  width: 96%;
+}
+
+tbody tr:nth-child(odd) > td{
+  background-color: #f1f1f1;
+}
+
+table tbody tr td{
+    border-top: 1px solid #dddddd;
+}
+
+#leftbar{
+    position: fixed;
+    left: 2%;
+    width: 23%;
+    padding: 0.02% 0.02%;
+    margin: 6% 0 0;
+    background-color: #fff;
+    border-radius:8px;
+    -moz-border-radius:8px;
+    -webkit-border-radius: 8px;      
+    -khtml-border-radius: 8px;
+    -o-border-radius:8px;
+    box-shadow: 1px 1px 3px #ddd;
+    -webkit-box-shadow: 1px 1px 3px #ddd;
+    -moz-box-shadow: 1px 1px 3px #ddd;
+    -khtml-box-shadow: 1px 1px 3px #ddd;
+    -o-box-shadow:1px 1px 3px #ddd;
+    border: 1px solid #ddd;
+}
+
+#leftbar ul{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+
+#leftbar ul li{
+    padding: 0px;
+    list-style:none;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+
+#leftbar ul li a{
+    padding: 0 90% 0 10%;/*使之沾满全行是蓝色背景铺满*/
+    white-space: nowrap;/*强制不换行*/
+    width: 100%;
+    text-decoration: none;
+    width: 100%;
+    border:0.1em solid #e5e5e5;
+}
+
+#leftbar ul li a:hover{
+    background: #ddd;
+}
+
+#leftbar ul li a:focus,#leftbar ul li a:active{
+    background: #0088cc;
+}
+
+#content{
+    float: right;
+    width: 70%;
+    margin-bottom: 50%;
+}
+
+.sec-header{
+    margin-top: 10%;
+    font-family: 'yh';
+}
+
+.sec-content{
+    width: 80%;
+    padding-left: 8px;
+    padding-right: 8px;
+    background: #fff;
+    border-radius:8px;
+    -moz-border-radius:8px;
+    -webkit-border-radius: 8px;      
+    -khtml-border-radius: 8px;
+    -o-border-radius:8px;
+    box-shadow: 1px 1px 3px #ddd;
+    -webkit-box-shadow: 1px 1px 3px #ddd;
+    -moz-box-shadow: 1px 1px 3px #ddd;
+    -khtml-box-shadow: 1px 1px 3px #ddd;
+    -o-box-shadow:1px 1px 3px #ddd;
+    border: 1px solid #ddd;
+}
+
+.sec-content table tr td{
+    width: 33.3333%;
+}
+
+#sec-content-1{
+    width: 54%;
+    padding-left: 8px;
+    padding-right: 8px;
+    background: #fff;
+    border-radius:8px;
+    -moz-border-radius:8px;
+    -webkit-border-radius: 8px;      
+    -khtml-border-radius: 8px;
+    -o-border-radius:8px;
+    box-shadow: 1px 1px 3px #ddd;
+    -webkit-box-shadow: 1px 1px 3px #ddd;
+    -moz-box-shadow: 1px 1px 3px #ddd;
+    -khtml-box-shadow: 1px 1px 3px #ddd;
+    -o-box-shadow:1px 1px 3px #ddd;
+    border: 1px solid #ddd;
+}
+
+#sec-content-1 table tr td{
+    width: 25%;
+}
+
+#uphoto{
+    height: 80%;
+    max-height: 160px;/*防止大图片走形*/
+}
+
+#sec-content-1 table tr{
+    height: 39px;
+}
+
+.subbutton{
+  margin-top: 3%;
+  text-align: center;
+  width: 30%;
+  float:right;
+  background:#fff;
+  background: #fff;
+  border-radius:8px;
+  -moz-border-radius:8px;
+  -webkit-border-radius: 8px;      
+  -khtml-border-radius: 8px;
+  -o-border-radius:8px;
+  box-shadow: 1px 1px 3px #ddd;
+  -webkit-box-shadow: 1px 1px 3px #ddd;
+  -moz-box-shadow: 1px 1px 3px #ddd;
+  -khtml-box-shadow: 1px 1px 3px #ddd;
+  -o-box-shadow:1px 1px 3px #ddd;
+  border: 1px solid #ddd;
+}
+
+.subbutton:hover{
+  background: #ddd;
+}

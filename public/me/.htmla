@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+	<title></title>
+	<meta name="keywords" content="吱声简历" />
+	<meta name="description" content="吱声简历" />
+	<link rel="shortcut icon" href="../Favicon.ico" mce_href="../Favicon.ico" type="image/x-icon">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta chaset="uft-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <script src="js/jquery.js" ></script>
+        <script src="js/me.js" ></script>
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="../css/headerstyle.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+                    <div class="header">
+                            <ul id="navigation">
+                                <li><a href="http://zisheng.org">H<p>首页</p></a></li>
+				<li><a href="search.php">s<p>搜索</p></a></li>
+                                <li><a href="http://zisheng.org/wall.php">t<p>微博墙</p></a></li>
+                                <li><a href="http://zisheng.org/huying">b<p>呼应</p></a></li>
+                                <li><a href="http://zisheng.org/me">i<p>我</p></a></li>
+				<li><a href="http://zisheng.org/me/regi.php">w<p>DIY简历</p></a></li>
+                            </ul>
+                    </div>
+                    
+                    <script type="text/javascript">
+                        $(function() {
+                            var d=300;
+                            $('#navigation a').each(function(){
+                                $(this).stop().animate({
+                                    'margin-top':'-123px'
+                                },d+=150);
+                            });
+                    
+                            $('#navigation > li').hover(
+                            function () {
+                                $('a',$(this)).stop().animate({
+                                    'margin-top':'-80px'
+                                },200);
+                            },
+                            function () {
+                                $('a',$(this)).stop().animate({
+                                    'margin-top':'-123px'
+                                },200);
+                            }
+                        );
+                        });
+                    </script>
+        </header>
+        <div class="mainwrapper" >
+            <div id="leftbar">
+                <ul id="bar">
+                    <li class="anklist"><a id="ank0" href="#link0">我</a></li>
+                    <li class="anklist"><a id="ank1" href="#link1">nbitem1_name</a></li>
+                    <li class="anklist"><a id="ank2" href="#link2">nbitem2_name</a></li>
+		    <li class="anklist"><a id="ank3" href="#link3">nbitem3_name</a></li>
+		    <li class="anklist"><a id="ank5" href="#link5">自述</a></li>
+		</ul>
+            </div>
+            <div id="content">
+                <section id="link0">
+                    <div class="sec-header">
+                        <h1>
+                            <span class="about">我</span>&nbsp;<small>about&nbsp;me</small>
+                        </h1>
+                    </div>
+                    <div id="sec-content-1">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td style="border-top:0px;">姓名</td>
+                                    <td colspan="2" style="border-top:0px;"></td>
+                                    <td rowspan="4" style="border-top:0px;"><img id="uphoto" src="../images/noname.gif"></img></td>
+                                </tr>
+                                <tr>
+                                    <td>电子邮箱</td>
+                                    <td colspan="2"></td>
+                                </tr>
+                                <tr>
+                                    <td>手机号</td>
+                                    <td colspan="2"></td>
+                                </tr>
+                                <tr>
+                                    <td>学校</td>
+                                    <td colspan="2"></td>
+                                </tr>
+                                <tr>
+                                    <td>学历：</td>
+                                    <td></td>
+                                    <td>专业：</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>：</td>
+                                    <td></td>
+                                    <td>：</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <section id="link1">
+                    <div class="sec-header">
+                        <h1>
+                            <span class="about">nbitem1_name</span>&nbsp;<small>NO.1</small>
+                        </h1>
+                    </div>
+                    <div class="sec-content">	
+                        <table class="content-table">
+                                <thead>
+                                        <tr>
+                                                <td><i class="icon-p"></i> <strong>nbitem1_col1_name</strong></td>
+                                                <td><i class="icon-t"></i> <strong>nbitem1_col2_name</strong></td>
+                                                <td><i class="icon-g"></i> <strong>nbitem1_col3_name</strong></td>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                                <td>nbitem1_11_val</td>
+                                                <td>nbitem1_12_val</td>
+                                                <td>nbitem1_13_val</td>
+                                        </tr>
+					<tr>
+                                                <td>nbitem1_21_val</td>
+                                                <td>nbitem1_22_val</td>
+                                                <td>nbitem1_23_val</td>
+                                        </tr>
+					<tr>
+                                                <td>nbitem1_31_val</td>
+                                                <td>nbitem1_32_val</td>
+                                                <td>nbitem1_33_val</td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+		
+		<section id="link2">
+                    <div class="sec-header">
+                        <h1>
+                            <span class="about">nbitem2_name</span>&nbsp;<small>NO.2</small>
+                        </h1>
+                    </div>
+                    <div class="sec-content">	
+                        <table class="content-table">
+                                <thead>
+                                        <tr>
+                                                <td><i class="icon-p"></i> <strong>nbitem2_col1_name</strong></td>
+                                                <td><i class="icon-t"></i> <strong>nbitem2_col2_name</strong></td>
+                                                <td><i class="icon-g"></i> <strong>nbitem2_col3_name</strong></td>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                                <td>nbitem2_11_val</td>
+                                                <td>nbitem2_12_val</td>
+                                                <td>nbitem2_13_val</td>
+                                        </tr>
+					<tr>
+                                                <td>nbitem2_21_val</td>
+                                                <td>nbitem2_22_val</td>
+                                                <td>nbitem2_23_val</td>
+                                        </tr>
+					<tr>
+                                                <td>nbitem2_31_val</td>
+                                                <td>nbitem2_32_val</td>
+                                                <td>nbitem2_33_val</td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+		
+		<section id="link3">
+                    <div class="sec-header">
+                        <h1>
+                            <span class="about">nbitem3_name</span>&nbsp;<small>NO.3</small>
+                        </h1>
+                    </div>
+                    <div class="sec-content">	
+                        <table class="content-table">
+                                <thead>
+                                        <tr>
+                                                <td><i class="icon-p"></i> <strong>nbitem3_col1_name</strong></td>
+                                                <td><i class="icon-t"></i> <strong>nbitem3_col2_name</strong></td>
+                                                <td><i class="icon-g"></i> <strong>nbitem3_col3_name</strong></td>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                                <td>nbitem3_11_val</td>
+                                                <td>nbitem3_12_val</td>
+                                                <td>nbitem3_13_val</td>
+                                        </tr>
+					<tr>
+                                                <td>nbitem3_21_val</td>
+                                                <td>nbitem3_22_val</td>
+                                                <td>nbitem3_23_val</td>
+                                        </tr>
+					<tr>
+                                                <td>nbitem3_31_val</td>
+                                                <td>nbitem3_32_val</td>
+                                                <td>nbitem3_33_val</td>
+                                        </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </section>
+		
+		<section id="link5">
+                    <div class="sec-header">
+                        <h1>
+                            <span class="about">自述</span>
+                        </h1>
+                    </div>
+                    <div class="sec-content">	
+                        
+                    </div>
+                </section>
+		<p>
+		<a name="xn_share" onclick="shareClick()" type="button_medium" href="javascript:;"></a>
+		    <script type="text/javascript">
+			    function shareClick() {
+				    var rrShareParam = {
+					    resourceUrl : '',	//分享的资源Url
+					    srcUrl : '',	//分享的资源来源Url,默认为header中的Referer,如果分享失败可以调整此值为resourceUrl试试
+					    pic : '',		//分享的主题图片Url
+					    title : '',		//分享的标题
+					    description : ''	//分享的详细描述
+				    };
+				    rrShareOnclick(rrShareParam);
+			    }
+		    </script>
+		    <script type="text/javascript" charset="utf-8">
+			(function(){
+			  var _w = 106 , _h = 24;
+			  var param = {
+			    url:location.href,
+			    type:'5',
+			    count:'', /**是否显示分享数，1显示(可选)*/
+			    appkey:'', /**您申请的应用appkey,显示分享来源(可选)*/
+			    title:'', /**分享的文字内容(可选，默认为所在页面的title)*/
+			    pic:'', /**分享图片的路径(可选)*/
+			    ralateUid:'', /**关联用户的UID，分享微博会@该用户(可选)*/
+			    language:'zh_cn', /**设置语言，zh_cn|zh_tw(可选)*/
+			    dpc:1
+			  }
+			  var temp = [];
+			  for( var p in param ){
+			    temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
+			  }
+			  document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://service.weibo.com/staticjs/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
+			})()
+			</script>
+		    
+		</p>
+            </div>
+        </div>
+    </body>
+</html>

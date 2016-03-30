@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+  <html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="static/css/style.min.css">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>雷猴啊，红包降临</title>
+	</head>
+	<body>
+		<header>
+      <nav id="lh-nav-btn">
+        <div id="nav-top" class="nav-wrapper red lighten-2 ripple-btn">
+          <a href="#home" id="lh-logo" class="brand-logo center" style="font-size: 45px;margin:auto;">🐵</a>
+          <!-- bug report madol-->
+          <a id="lh-nav-btn-bug" href="#modal-bug" class="btn-floating btn-large waves-effect waves-light red right modal-trigger z-depth-2"><i class="icon-paper-plane-empty"></i></a>
+          <div id="modal-bug" class="modal modal-fixed-footer">
+            <form>
+              <div class="modal-content input-field col s12">
+                <h4>给作者反馈</h4>
+                <textarea id="modal-bug-text" class="materialize-textarea"></textarea>
+              </div>
+              <div class="modal-footer">
+                <label id="modal-bug-text-warning"></label>
+                <a href="#!" id="modal-bug-submit" class="btn-flat btn waves-effect waves-light red lighten-2 "><i class="icon-ok"></i></a>
+              </div>
+            </form>  
+          </div>
+          <!-- end of modal-->
+        </div>
+      </nav>
+      
+
+
+		</header>
+    <!- body content ->
+    <!-- self intro -->
+    <div id="home" class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">雷猴啊</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">出题发红包，欢乐少不了</h5>
+        </div>
+        <div class="row center">
+          <a href="/bao/bzEXO1Ju.html#aOi8LHlq" id="download-button" class="btn-large waves-effect waves-light orange">发红包的正确姿势</a>
+        </div>
+        <br>
+      </div>
+    </div>
+    <!-- end of sefl into -->
+    <!-- main container -->
+    <div class="container">
+      <div class="section">
+        <div class="card deep-orange lighten-3">
+          <div class="card-content black-text">
+            <div class="weui_grids">
+              <a href="#hongbao" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-yen"></i>
+                </div>
+                <p class="weui_grid_label">红包</p>
+              </a>
+              <a href="#question" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-edit"></i>
+                </div>
+                <p class="weui_grid_label">出题</p>
+              </a>
+            </div>
+            <div class="weui_grids">
+              <a href="#description" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-chat"></i>
+                </div>
+                <p class="weui_grid_label">留言</p>
+              </a>
+              <a id="send-hongbao" href="#" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-gift"></i>
+                </div>
+                <p class="weui_grid_label">发出</p>
+              </a>        
+            </div>
+            <div class="weui_grids">
+              <a href="#settings" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-cog"></i>
+                </div>
+                <p class="weui_grid_label">设置</p>
+              </a>
+              <a href="#info" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-info"></i>
+                </div>
+                <p class="weui_grid_label">关于</p>
+              </a>        
+            </div>
+          </div>
+        </div><!---- end of card ---->
+      </div><!--- end of div section 1 --->
+      
+      <br>
+      
+      <!--- section 2 -->
+      <div class="section">
+      <!---- func ---->
+        <form class="col s12">
+          <!- hongbao ->
+          <div id="hongbao" class="card red lighten-5">
+            <div class="card-content black-text">
+              <span class="card-title"><i class="icon-yen prefix"></i>红包</span>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="hongbao-code" type="number" class="validate">
+                  <label for="hongbao-code">支付宝红包口令</label>
+                </div>
+                <label id="hongbao-code-warning"></label>
+              </div>
+            </div>
+          </div>
+          
+          <!- question ->
+          <div id="question" class="card red lighten-5">
+            <div class="card-content black-text">
+              <span class="card-title"><i class="icon-edit prefix"></i>出题</span>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="question-code" class="materialize-textarea"></textarea>
+                  <label class="label-text" for="question-code">点击填写题目内容</label>
+                </div>
+                <label id="question-code-warning"></label>
+              </div>
+              <div class="row">
+                <table>
+                  <thead>
+                    <tr>
+                      <th data-field="answear-id">序号</th>
+                      <th data-field="answear-ct">答案</th>
+                      <th data-field="answear-rw">对错</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>A</td>
+                      <td>
+                        <div class="input-field col s8">
+                          <input id="answear-a" type="text" class="validate">
+                          <label class="label-text" for="answear-a">答案A</label>
+                        </div>
+                        <label id="answear-a-warning"></label>
+                      </td>
+                      <td>
+                        <div class="switch">
+                          <label class="label-text">
+                            错
+                            <input id="answear-a-right" type="checkbox" checked="checked">
+                            <span class="lever"></span>
+                            对
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>
+                        <div class="input-field col s8">
+                          <input id="answear-b" type="text" class="validate">
+                          <label class="label-text" for="answear-b">答案B</label>
+                        </div>
+                        <label id="answear-b-warning"></label>
+                      </td>
+                      <td>
+                        <div class="switch">
+                          <label class="label-text">
+                            错
+                            <input id="answear-b-right" type="checkbox">
+                            <span class="lever"></span>
+                            对
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>  
+              </div>
+            </div>
+          </div>
+
+          <!- description ->
+          <div id="description" class="card red lighten-5">
+            <div class="card-content black-text">
+              <span class="card-title"><i class="icon-chat prefix"></i>留言</span>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="description-name" type="text" class="validate">
+                  <label for="description-name">尊姓大名</label>
+                </div>
+                <label id="description-name-warning"></label>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input id="description-right" type="text" class="validate">
+                  <label for="description-right">
+                    <i class="icon-emo-happy"></i>答对时对Ta说：
+                  </label>
+                </div>
+                <label id="description-right-warning"></label>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input id="description-wrong" type="text" class="validate">
+                  <label for="description-wrong">
+                    <i class="icon-emo-unhappy"></i>答错时对Ta说：
+                  </label>
+                </div>
+                <label id="description-wrong-warning"></label>
+              </div>
+            </div>
+          </div>
+
+          <!- settings ->
+          <div id="settings" class="card red lighten-5">
+            <div class="card-content black-text">
+              <span class="card-title"><i class="icon-cog prefix"></i>设置</span>
+              <div class="row">
+                <p class="range-field">
+                  <label for="settings-value">滑块设置红包有效时间：单位／小时</label> 
+                  <input id="settings-value" type="range" id="settins-time" min="0" max="72" />
+                </p>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!- info ->
+        <div id="info" class="card red lighten-5">
+          <div class="card-content black-text">
+            <span class="card-title"><i class="icon-info prefix"></i>关于</span>
+            <p>
+              雷猴啊红包--使用说明
+            </p>
+            <br>
+            <p>
+              点击顶部的🐵回到操作按钮处。点击红包：输入红包口令；点击出题：填写题目；点击留言：填写发红包想说的话；点击发出：会自动生成一个红包链接，将此链接发送给对方即可。
+            </p>
+            <br>
+            <p>
+              如果您发现任何bug或者有任何建议对我反馈，请点击右上角的<i class="icon-paper-plane-empty"></i>图标，注明当前使用微信/浏览器版本；如果您想发个红包鼓励一下作者，直接给我反馈支付宝红包口令即可。
+            </p>
+            <br>
+            <p>
+              本软件不盈利，在此声明：支付宝红包的口令会加密，生成红包链接时唯一的，只有收到您红包链接并且答对者才可以看到红包口令；但不排除本人才疏学浅被其他技术宅发现漏洞用于抢红包的情况，所以请勿发送过大红包，本人不对您的红包被别人恶意抢走承担任何责任。
+            </p>
+          </div>
+          <div class="card-action">
+            <a href="http://dearmr.wang" target="_blank">我的博客</a>
+            <a href="http://weibo.com/njgesanghua" target="_blank">我的微博</a>
+          </div>
+        </div>
+          
+        </div><!-end of div section 2->
+      <!- end of func ->
+      </div>
+    </div>
+
+    <!- end of body ->
+
+
+
+  	<script type="text/javascript" src="static/js/jquery-2.1.4.min.js"></script>
+  	<script type="text/javascript" src="static/js/materialize.min.js"></script>
+    <script type="text/javascript" src="static/js/main.js"></script>
+	</body>
+</html>

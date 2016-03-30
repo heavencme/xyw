@@ -1,0 +1,15 @@
+{
+	"name": "user_auth",
+	"version": "0.0.1",
+	"dependencies": {
+		"express": ">=3",
+    		"cookie-parser": "~1.0.1",
+    		"body-parser": "~1.0.0",
+		"express-session": ">=1.0.4",
+    		"debug": "~0.7.4",
+    		"jade": "~1.3.0",
+		"mongodb": ">=1.4",
+		"mysql": "*",
+		"redis": ">=0.10.1"
+	}
+}
