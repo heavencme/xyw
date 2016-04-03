@@ -14,7 +14,7 @@ var fs = require('fs');
  */
 
 var mask = process.umask(0);
-var socket = '/tmp/' + 'leihou.sock';
+var socket = '/tmp/' + 'xyw.sock';
 if (fs.existsSync(socket)) {
    fs.unlinkSync(socket);
 }
