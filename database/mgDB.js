@@ -1,15 +1,15 @@
 var mongodb = require('mongodb');
 var settings = require('./settings');
 
-function mgDB( id ) {
+function mgDB(dbName, id) {
 	this.id = id;
 	this.mgClient = mongodb.MongoClient;
 	// certain database
-	this.mongoUri = 'mongodb://localhost:27017/leihou';
+	this.mongoUri = 'mongodb://localhost:27017/' + dbName;
 }
 
 /** insert method **/
-mgDB.prototype.insert = function( event, act, collection, docArr ) {
+mgDB.prototype.insert = function(event, act, collection, docArr, responseObj) {
 	// connect to database
 	this.mgClient.connect( this.mongoUri, function(err, db) {
 		if (err) {
@@ -32,6 +32,7 @@ mgDB.prototype.insert = function( event, act, collection, docArr ) {
 				var resultObj = {};
 				resultObj.database = 'mongodb';
 				resultObj.data = result;
+				resultObj['responseObj'] = responseObj;
 
 				// closure make variables: act, event accessible to callback function
 				resultObj.action = act;
