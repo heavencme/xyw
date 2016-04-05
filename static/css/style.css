@@ -1,0 +1,249 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('fonts/fontello.eot?72367738');
+  src: url('fonts/fontello.eot?72367738#iefix') format('embedded-opentype'),
+       url('fonts/fontello.woff?72367738') format('woff'),
+       url('fonts/fontello.ttf?72367738') format('truetype'),
+       url('fonts/fontello.svg?72367738#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?72367738#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-play:before { content: '\e5cc'; } /* '' */
+.icon-music:before { content: '\e800'; } /* '' */
+.icon-home:before { content: '\e801'; } /* '' */
+.icon-weibo:before { content: '\e802'; } /* '' */
+.icon-plus:before { content: '\e803'; } /* '' */
+.icon-minus:before { content: '\e804'; } /* '' */
+.icon-bug:before { content: '\e805'; } /* '' */
+.icon-lock:before { content: '\e806'; } /* '' */
+.icon-paper-plane-empty:before { content: '\e807'; } /* '' */
+.icon-lock-open:before { content: '\e808'; } /* '' */
+.icon-wechat:before { content: '\e809'; } /* '' */
+.icon-pencil:before { content: '\e80a'; } /* '' */
+.icon-cog:before { content: '\e80b'; } /* '' */
+.icon-doc-inv:before { content: '\e80c'; } /* '' */
+.icon-menu:before { content: '\e80d'; } /* '' */
+.icon-yen:before { content: '\e80e'; } /* '' */
+.icon-dollar:before { content: '\e80f'; } /* '' */
+.icon-emo-happy:before { content: '\e810'; } /* '' */
+.icon-emo-unhappy:before { content: '\e811'; } /* '' */
+.icon-money:before { content: '\e812'; } /* '' */
+.icon-export:before { content: '\e813'; } /* '' */
+.icon-chat:before { content: '\e815'; } /* '' */
+.icon-pause:before { content: '\e817'; } /* '' */
+.icon-picture:before { content: '\e818'; } /* '' */
+.icon-ok:before { content: '\e819'; } /* '' */
+.icon-cancel:before { content: '\e81a'; } /* '' */
+.icon-heart-empty:before { content: '\e81b'; } /* '' */
+.icon-heart:before { content: '\e81c'; } /* '' */
+.icon-rss:before { content: '\e81d'; } /* '' */
+.icon-gift:before { content: '\e821'; } /* '' */
+.icon-edit:before { content: '\e822'; } /* '' */
+.icon-android:before { content: '\e823'; } /* '' */
+.icon-info:before { content: '\e824'; } /* '' */
+.icon-pin:before { content: '\e814'; } /* '' */
+
+
+/* style */
+.dairy-pad {
+
+}
+
+#lh-logo {
+  color: #ffeb3b;
+  font-weight: 700;
+}
+
+#lh-main {
+  width: 81%;
+  max-width: 1280px;
+
+}
+
+.lh-icon-btn {
+  font-size: 2em;
+}
+
+#lh-nav-btn-bug {
+  margin-top: 28px;
+  margin-right: 10px;
+}
+
+#modal-bug {
+  color: #000;
+}
+
+/* ripple effects */
+.ripple {
+  position: absolute;
+  background: rgba(0,0,0,.15);
+  border-radius: 100%;
+  transform: scale(0);
+  pointer-events: none;
+}
+.ripple.show {
+  animation: ripple .75s ease-out;
+}
+@keyframes ripple {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* css shake */
+@keyframes shake {
+  2% {
+    transform: translate(1.5px, 2.5px) rotate(-0.5deg); }
+  4% {
+    transform: translate(1.5px, -1.5px) rotate(0.5deg); }
+  6% {
+    transform: translate(1.5px, -1.5px) rotate(-0.5deg); }
+  8% {
+    transform: translate(0.5px, 2.5px) rotate(0.5deg); }
+  10% {
+    transform: translate(-0.5px, -0.5px) rotate(1.5deg); }
+  12% {
+    transform: translate(-0.5px, -0.5px) rotate(-0.5deg); }
+  14% {
+    transform: translate(2.5px, 0.5px) rotate(-0.5deg); }
+  16% {
+    transform: translate(-1.5px, 1.5px) rotate(0.5deg); }
+  18% {
+    transform: translate(2.5px, 0.5px) rotate(-0.5deg); }
+  20% {
+    transform: translate(-1.5px, 0.5px) rotate(-0.5deg); }
+  22% {
+    transform: translate(2.5px, -1.5px) rotate(-0.5deg); }
+  24% {
+    transform: translate(1.5px, 2.5px) rotate(1.5deg); }
+  26% {
+    transform: translate(-1.5px, -0.5px) rotate(0.5deg); }
+  28% {
+    transform: translate(1.5px, 1.5px) rotate(-0.5deg); }
+  30% {
+    transform: translate(2.5px, -1.5px) rotate(-0.5deg); }
+  32% {
+    transform: translate(0.5px, 2.5px) rotate(-0.5deg); }
+  34% {
+    transform: translate(-0.5px, 1.5px) rotate(1.5deg); }
+  36% {
+    transform: translate(0.5px, 1.5px) rotate(1.5deg); }
+  38% {
+    transform: translate(1.5px, 1.5px) rotate(0.5deg); }
+  40% {
+    transform: translate(-0.5px, 1.5px) rotate(0.5deg); }
+  42% {
+    transform: translate(-0.5px, 0.5px) rotate(1.5deg); }
+  44% {
+    transform: translate(-1.5px, -1.5px) rotate(1.5deg); }
+  46% {
+    transform: translate(0.5px, -0.5px) rotate(0.5deg); }
+  48% {
+    transform: translate(-0.5px, 1.5px) rotate(-0.5deg); }
+  50% {
+    transform: translate(2.5px, -0.5px) rotate(-0.5deg); }
+  52% {
+    transform: translate(0.5px, -1.5px) rotate(0.5deg); }
+  54% {
+    transform: translate(2.5px, -1.5px) rotate(0.5deg); }
+  56% {
+    transform: translate(-1.5px, -0.5px) rotate(0.5deg); }
+  58% {
+    transform: translate(-1.5px, 2.5px) rotate(1.5deg); }
+  60% {
+    transform: translate(0.5px, -1.5px) rotate(0.5deg); }
+  62% {
+    transform: translate(-0.5px, 2.5px) rotate(1.5deg); }
+  64% {
+    transform: translate(0.5px, 0.5px) rotate(-0.5deg); }
+  66% {
+    transform: translate(1.5px, -0.5px) rotate(1.5deg); }
+  68% {
+    transform: translate(-1.5px, -0.5px) rotate(0.5deg); }
+  70% {
+    transform: translate(-0.5px, 2.5px) rotate(1.5deg); }
+  72% {
+    transform: translate(1.5px, 0.5px) rotate(0.5deg); }
+  74% {
+    transform: translate(0.5px, -1.5px) rotate(0.5deg); }
+  76% {
+    transform: translate(1.5px, 1.5px) rotate(-0.5deg); }
+  78% {
+    transform: translate(2.5px, -1.5px) rotate(0.5deg); }
+  80% {
+    transform: translate(-1.5px, 1.5px) rotate(0.5deg); }
+  82% {
+    transform: translate(-0.5px, 2.5px) rotate(1.5deg); }
+  84% {
+    transform: translate(1.5px, 1.5px) rotate(-0.5deg); }
+  86% {
+    transform: translate(2.5px, 0.5px) rotate(1.5deg); }
+  88% {
+    transform: translate(-0.5px, -1.5px) rotate(-0.5deg); }
+  90% {
+    transform: translate(1.5px, -0.5px) rotate(-0.5deg); }
+  92% {
+    transform: translate(0.5px, -1.5px) rotate(1.5deg); }
+  94% {
+    transform: translate(-0.5px, -0.5px) rotate(0.5deg); }
+  96% {
+    transform: translate(-0.5px, -1.5px) rotate(-0.5deg); }
+  98% {
+    transform: translate(-0.5px, -1.5px) rotate(1.5deg); }
+  0%, 100% {
+    transform: translate(0, 0) rotate(0); } 
+}
+
+.shake {
+  animation: shake 100ms ease-in-out infinite; 
+}
+
+
+
