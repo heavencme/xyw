@@ -169,11 +169,14 @@ function genPage(data, isInit) {
         </div> \
     ';
 
-    htmlStr.replace(/dairy-time/g, data.time);
-    htmlStr.replace(/dairy-msg/g, data.msg);
-    htmlStr.replace(/dairy-id/g, data.id);
+    for (var i in data.data) {
+        
+        htmlStr.replace(/dairy-time/g, data[i].time);
+        htmlStr.replace(/dairy-msg/g, data[i].msg);
+        htmlStr.replace(/dairy-id/g, data[i]._id); 
 
-    $("#lh-main").before(htmlStr);
+        $("#lh-main").before(htmlStr);   
+    }
 }
 
 /** end **/
