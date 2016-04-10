@@ -175,7 +175,7 @@ function genPage(data, isInit) {
     for (var i in dairyArr) {
         //console.log(data['data']);
 
-        console.log(dairy[i]);
+        console.log(dairyArr[i]);
     
         htmlStr.replace(/dairy-time/g, dairyArr[i]['time']);
         htmlStr.replace(/dairy-msg/g, dairyArr[i].msg);
