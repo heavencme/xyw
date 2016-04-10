@@ -153,7 +153,7 @@ function eraseCookie(name) {
 }
 
 function genPage(data, isInit) {
-    var htmlStr = '
+    var htmlStr = ' \
         <div class="col dairy-pad"> \
           <div class="card"> \
             <span class="card-title">dairy-time</span> \
