@@ -154,7 +154,8 @@ function eraseCookie(name) {
 }
 
 function genPage(data, isInit) {
-    var htmlStr = ' \
+    var htmlStr;
+    var templateStr = ' \
         <div class="col dairy-pad"> \
           <div class="card"> \
             <span class="card-title">dairy-time</span> \
@@ -177,7 +178,7 @@ function genPage(data, isInit) {
 
         console.log(dairyArr[i]);
     
-        htmlStr = htmlStr.replace(/dairy-time/g, dairyArr[i]['time']);
+        htmlStr = templateStr.replace(/dairy-time/g, dairyArr[i]['time']);
         htmlStr = htmlStr.replace(/dairy-msg/g, dairyArr[i]['msg']);
         htmlStr = htmlStr.replace(/dairy-id/g, dairyArr[i]['_id']); 
 
