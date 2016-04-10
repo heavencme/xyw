@@ -1,33 +1,7 @@
 (function($){
 /* start */
 
-var g_input = {
-  isValid: false,
-  answear_a_ok: false,
-  answear_b_ok: false,
-
-  modal_bug_text: '',
-  hongbao_code: '',
-  question_code: '',
-  answear_a: '',
-  answear_b: '',
-  description_name: '',
-  description_right: '',
-  description_wrong: ''
-}; 
-
-var g_initHash = (window.location.hash).replace(/#/g, '');
-
-/* input length count */
-inputLenCount('modal-bug-text', 200);
-inputLenCount('hongbao-code', 10);
-inputLenCount('question-code', 150);
-inputLenCount('answear-a', 20);
-inputLenCount('answear-b', 20);
-inputLenCount('description-name', 20);
-inputLenCount('description-right', 20);
-inputLenCount('description-wrong', 20);
-
+initDairy();
 
 
 /* modal options */
@@ -69,116 +43,24 @@ $('#modal-bug-submit').click(function(e){
   });
 });
 
-/* validate and send hongbao */
-$('#send-hongbao').click(function(){
-    var newHash = sendInfoValidate();
-    if (newHash != '#home') {
-        window.location.hash = newHash;
-
-        /* notify users to fullfill */
-        var $toastContent = $('<span class=\'green\'>' 
-            + '先填写完整再发送哦' + '</span>');
-        Materialize.toast($toastContent, 5000);
-
-        /* if don't return false, jq will reset  window hash to '#' */
-        return false;
-    }
-    g_input['time'] = new Date().getTime();
-
+/*get dairy data*/
+function initDairy() {
     $.ajax({
-        url: "/hongbao/set",
+        url: "/data/read",
         method: "POST",
-        data: g_input,
-        success: function(ret){
-            
-            window.location = '/bao/' + ret.location + '.html#' + ret.hash;
+        data: { 
+            time: now.toLocaleString()    
+        },
+        success: function(data){
+            console.log(data);
+
+            genPage(data, false);
         },
         error: function(e){
             alert('呃……服务器被我关了');
         }
     });
-});
-
-/* trigger hongbao test*/
-$('#show-me-ur-money-btn').click(function(){
-    /*redirect hash*/
-    window.location.hash = '#' + g_initHash;
-
-    /* gardian judge*/
-    var isLocked = $('#show-me-ur-money-btn').hasClass('locked') || 
-        ( getCookie('miss') == (window.location.hash).replace(/#/g, '') ); 
-    
-    if (isLocked) {
-
-        $('#show-me-ur-money-btn').html("<i class=\"icon-lock yellow darken-3\"></i>");
-        return;
-    }
-    else {
-        $('#money-trick').openModal();;
-    }
-});
-
-/* check and show hongbao code */
-$('#hongbao-check-btn').click(function(e){
-
-    clientData = {
-        clientHash: g_initHash
-    };
-
-    var userChoice = $('input[type="radio"][name="answear"]:checked').val();
-    
-    if (userChoice) {
-        clientData['clientRet'] = userChoice;
-    }
-    else {
-        alert("请先点击，选择其中一个答案");
-        return;
-    }
-
-    $.ajax({
-        url: "/hongbao/check",
-        method: "POST",
-        data: clientData,
-        success: function(ret){
-            
-            if (ret.result == 'ok' && ret.key == userChoice) {
-                var $toastContent = $('<span class=\'green\'>' 
-                    + ret.description_right + '</span>');
-                Materialize.toast($toastContent, 5000);
-
-                /* open box for first time*/
-                if( 0 >= $('#boxOpen').length ) {
-                  $('#hongbao-card-content').prepend('<br><p id="boxOpen">红包口令: <strong>' + ret.box + '</strong></p>');
-                  $('#show-me-ur-money-btn').html("<i class=\"icon-lock-open yellow darken-3\"></i>");
-                }
-                
-            }
-            else if (ret.result == 'ok' && ret.key != userChoice){
-                var $toastContent = $('<span class=\'green\'>' 
-                    + ret.description_wrong + '</span>');
-                Materialize.toast($toastContent, 5000);
-                
-                setCookie('miss', clientData.clientHash, 3);
-
-                $('#show-me-ur-money-btn').addClass('locked');
-                $('#show-me-ur-money-btn').html("<i class=\"icon-lock yellow darken-3\"></i>");
-            }
-            else {
-                var $toastContent = $('<span class=\'green\'>' 
-                    + '呃……红包不是发你的？' + '</span>');
-                Materialize.toast($toastContent, 5000);
-            }
-
-            /* add shake effect ot send also icon */
-            sendAlsoIconShake();
-        },
-        error: function(e){
-            alert('呃……服务器被我关了');
-        }
-    });
-
-    $('#money-trick').closeModal();
-});
+}
 
 /* ripple effect */
 $(".ripple-btn").click(addRippleEffect);
@@ -243,33 +125,6 @@ function inputLenCount(ipnutId, maxLen) {
 
 }
 
-/* send-hongbao validate: #home --> valid */
-function sendInfoValidate() {
-    
-    /* chose valid answear */
-    g_input['answear_a_ok'] = ( true == $('#answear-a-right').prop("checked") ) ? true : false;
-    g_input['answear_b_ok'] = ( true == $('#answear-b-right').prop("checked") ) ? true : false;
-
-    if ( g_input['answear_a_ok'] || g_input['answear_b_ok'] ) {
-       
-    }
-    else {
-        g_input['answear_a_ok'] = ( Math.random() > 0.5 );
-        g_input['answear_b_ok'] = !g_input['answear_a_ok'];
-    }
-
-    /* test not empty */
-    for (var idx in g_input) {
-        if ( 'isValid' != idx && 'modal_bug_text' != idx && g_input[idx].length == 0 ) {
-            var newHash = '#' + idx.replace(/_/g, '-');
-            return newHash;
-        }
-    }
-
-    return '#home';
-
-}
-
 /* set cookie and its expiredays*/
 function setCookie(name, value, days) {
     if (days) {
@@ -297,17 +152,29 @@ function eraseCookie(name) {
     createCookie(name,"",-1);
 }
 
-/* send also icon shake */
-function sendAlsoIconShake() {
-    if ( 0 < $("#send-alson").length ) {
-        $("#send-alson").addClass("shake");
-        return;
-    }
-    else {
-        return;
-    }
-}
+function genPage(data, isInit) {
+    var htmlStr = "
+        <div class=\"col dairy-pad\">
+          <div class=\"card\">
+            <span class=\"card-title\">dairy-time</span>
+            <div class=\"card-content\">
+              <p>
+                dairy-msg
+              </p>
+            </div>
+            <div class=\"card-action\">
+              <a class=\"right\" href=\"#dairy-id\"><i class=\"icon-pin lh-icon-btn\"></i></a>
+            </div>
+          </div>
+        </div>
+    ";
 
+    htmlStr.replace(/dairy-time/g, data.time);
+    htmlStr.replace(/dairy-msg/g, data.msg);
+    htmlStr.replace(/dairy-id/g, data.id);
+
+    $("#lh-main").before(htmlStr);
+}
 
 /** end **/
 })(jQuery);
