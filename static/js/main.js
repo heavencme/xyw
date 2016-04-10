@@ -20,7 +20,7 @@ $('.modal-trigger').leanModal({
 
 /*modal content submit */
 $('#modal-bug-submit').click(function(e){
-  if( ! textLenValidate('modal-bug-text', 200) ) {
+  if( ! textLenValidate('modal-bug-text', 500) ) {
     return;
   }
 
