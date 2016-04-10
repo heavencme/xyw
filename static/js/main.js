@@ -55,7 +55,7 @@ function initDairy() {
         success: function(data){
             console.log(data);
 
-            genPage(data, false);
+            //genPage(data, false);
         },
         error: function(e){
             alert('呃……服务器被我关了');
