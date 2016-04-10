@@ -51,7 +51,7 @@ $('#modal-bug-submit').click(function(e){
   }
 
   $.ajax({
-    url: "/hongbao/report",
+    url: "/data/write",
     method: "POST",
     data: { 
         data: $('#modal-bug-text').val()
