@@ -153,21 +153,21 @@ function eraseCookie(name) {
 }
 
 function genPage(data, isInit) {
-    var htmlStr = "
-        <div class=\"col dairy-pad\">
-          <div class=\"card\">
-            <span class=\"card-title\">dairy-time</span>
-            <div class=\"card-content\">
-              <p>
-                dairy-msg
-              </p>
-            </div>
-            <div class=\"card-action\">
-              <a class=\"right\" href=\"#dairy-id\"><i class=\"icon-pin lh-icon-btn\"></i></a>
-            </div>
-          </div>
-        </div>
-    ";
+    var htmlStr = '
+        <div class="col dairy-pad"> \
+          <div class="card"> \
+            <span class="card-title">dairy-time</span> \
+            <div class="card-content"> \
+              <p> \
+                dairy-msg \
+              </p> \
+            </div> \
+            <div class="card-action"> \
+              <a class="right" href="#dairy-id"><i class="icon-pin lh-icon-btn"></i></a> \
+            </div> \
+          </div> \
+        </div> \
+    ';
 
     htmlStr.replace(/dairy-time/g, data.time);
     htmlStr.replace(/dairy-msg/g, data.msg);
