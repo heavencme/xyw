@@ -36,7 +36,7 @@ $('#modal-bug-submit').click(function(e){
         passCode: "wb@19910309"
     },
     success: function(data) {
-        genPage(data, false);
+        genPage(data);
         $('#modal-bug').closeModal();
     },
     error: function(e){
@@ -119,11 +119,7 @@ function inputLenCount(ipnutId, maxLen) {
             g_input[ ipnutId.replace(/-/g,"_") ] = inObj.val();
         }
         outObj.text("已输入" + inLen + "/" + maxLen);
-        
-
     });
-
-
 }
 
 /* set cookie and its expiredays*/
@@ -153,8 +149,14 @@ function eraseCookie(name) {
     createCookie(name,"",-1);
 }
 
-function genPage(data, isInit) {
+function genPage(data) {
     var dairyArr = data.data;
+
+    // in case of single data
+    if ( isArray(dairyArr) ) {
+        dairyArr = [dairyArr];     
+    }
+
     var htmlStr;
     var templateStr = ' \
         <div class="col dairy-pad" id="dairy-id"> \
@@ -178,6 +180,10 @@ function genPage(data, isInit) {
 
         $("#lh-main").prepend(htmlStr);   
     }
+}
+
+function isArray(obj) {
+    return Object.prototype.toString.call(obj) === '[object Array]';
 }
 
 /** end **/
