@@ -49,7 +49,7 @@ function initDairy() {
         url: "/data/read",
         method: "POST",
         data: { 
-            time: now.toLocaleString()    
+            queryCode: 'init' 
         },
         success: function(data){
             console.log(data);
