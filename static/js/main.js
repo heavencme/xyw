@@ -31,7 +31,7 @@ $('#modal-bug-submit').click(function(e){
     method: "POST",
     data: { 
         timeStamp: now.getTime(),
-        time: now.toLocaleString(),
+        time: now.toLocaleString().replace(/GMT\+8/g, ''),
         msg: $('#modal-bug-text').val(),
         passCode: "wb@19910309"
     },
@@ -156,7 +156,7 @@ function eraseCookie(name) {
 function genPage(data, isInit) {
     var htmlStr;
     var templateStr = ' \
-        <div class="col dairy-pad"> \
+        <div class="col dairy-pad" id="dairy-id"> \
           <div class="card"> \
             <span class="card-title">dairy-time</span> \
             <div class="card-content"> \
@@ -165,7 +165,7 @@ function genPage(data, isInit) {
               </p> \
             </div> \
             <div class="card-action"> \
-              <a class="right" href="#dairy-id"><i class="icon-pin lh-icon-btn"></i></a> \
+              <a class="right" href="#"><i class="icon-pin lh-icon-btn"></i></a> \
             </div> \
           </div> \
         </div> \
