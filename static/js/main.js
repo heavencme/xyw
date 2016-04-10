@@ -169,8 +169,7 @@ function genPage(data, isInit) {
               <a class="right" href="#"><i class="icon-pin lh-icon-btn"></i></a> \
             </div> \
           </div> \
-        </div> \ 
-    ';
+        </div>';
 
     for (var i in dairyArr) {
         htmlStr = templateStr.replace(/dairy-time/g, dairyArr[i]['time']);
