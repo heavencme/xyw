@@ -153,7 +153,7 @@ function genPage(data) {
     var dairyArr = data.data;
 
     // in case of single data
-    if ( isArray(dairyArr) ) {
+    if ( ! isArray(dairyArr) ) {
         dairyArr = [dairyArr];     
     }
 
