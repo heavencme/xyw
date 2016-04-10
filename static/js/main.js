@@ -39,7 +39,7 @@ $('#modal-bug-submit').click(function(e){
         if(ret.status == 'ok') {
             genPage(ret.data.ops);
         }
-        
+
         $('#modal-bug').closeModal();
     },
     error: function(e){
@@ -58,7 +58,9 @@ function initDairy() {
         },
         success: function(ret){
             //console.log(data);
-            genPage(ret.data);
+            if(ret.data && ret.data.length > 0) {
+                genPage(ret.data);
+            }
         },
         error: function(e){
             alert('呃……服务器被我关了');
