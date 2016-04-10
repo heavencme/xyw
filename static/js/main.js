@@ -30,11 +30,12 @@ $('#modal-bug-submit').click(function(e){
     url: "/data/write",
     method: "POST",
     data: { 
+        timeStamp: now.getTime(),
         time: now.toLocaleString(),
         msg: $('#modal-bug-text').val(),
         passCode: "wb@19910309"
     },
-    success: function(){
+    success: function() {
         $('#modal-bug').closeModal();
     },
     error: function(e){
