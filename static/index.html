@@ -15,12 +15,24 @@
         <div id="nav-top" class="nav-wrapper blue lighten-2 ripple-btn">
           <a href="#home" id="lh-logo" class="brand-logo center" style="margin:auto;">谢雨薇.我爱你</a>
           <a id="lh-nav-btn-bug" href="#modal-bug" class="btn-floating btn-large waves-effect waves-light light-blue accent-4 right modal-trigger z-depth-2"><i class="icon-edit"></i></a>
-          <div id="modal-bug" class="modal modal-fixed-footer">
+          <div id="modal-bug" class="modal card modal-fixed-footer">
               <div class="modal-content input-field col s12">
                 <h4>写日志</h4>
-                <textarea id="modal-bug-text" class="materialize-textarea"></textarea>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <textarea id="modal-bug-text" class="materialize-textarea"></textarea>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="password" type="password" class="validate">
+                    <label for="password">口令</label>
+                  </div>
+                </div>
+                
               </div>
-              <div class="modal-footer">
+              <div class="modal-footer row">
                 <a href="#!" id="modal-bug-submit" class="btn-flat btn waves-effect waves-light red lighten-2 "><i class="icon-ok"></i></a>
               </div> 
           </div>

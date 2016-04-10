@@ -33,10 +33,13 @@ $('#modal-bug-submit').click(function(e){
         timeStamp: now.getTime(),
         time: now.toLocaleString().replace(/GMT\+8/g, ''),
         msg: $('#modal-bug-text').val(),
-        passCode: "wb@19910309"
+        passCode: $('#password').val()
     },
     success: function(ret) {
-        genPage(ret.data.ops);
+        if(ret.status == 'ok') {
+            genPage(ret.data.ops);
+        }
+        
         $('#modal-bug').closeModal();
     },
     error: function(e){
