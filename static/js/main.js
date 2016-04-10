@@ -170,14 +170,14 @@ function genPage(data, isInit) {
         </div> \
     ';
 
-    for (var i in data['data']) {
-        console.log(data['data']);
+    for (var item in data['data']) {
+        //console.log(data['data']);
 
-        console.log( data['data'][i]['msg'] );
-
-        htmlStr.replace(/dairy-time/g, data['data'][i]['time']);
-        htmlStr.replace(/dairy-msg/g, data[i]['msg']);
-        htmlStr.replace(/dairy-id/g, data[i]['_id']); 
+        console.log(i);
+    
+        htmlStr.replace(/dairy-time/g, item['time']);
+        htmlStr.replace(/dairy-msg/g, item['msg']);
+        htmlStr.replace(/dairy-id/g, item['_id']); 
 
         $("#lh-main").before(htmlStr);   
     }
