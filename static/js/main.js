@@ -177,9 +177,9 @@ function genPage(data, isInit) {
 
         console.log(dairyArr[i]);
     
-        htmlStr.replace(/dairy-time/g, dairyArr[i]['time']);
-        htmlStr.replace(/dairy-msg/g, dairyArr[i].msg);
-        htmlStr.replace(/dairy-id/g, dairyArr[i]['_id']); 
+        htmlStr = htmlStr.replace(/dairy-time/g, dairyArr[i]['time']);
+        htmlStr = htmlStr.replace(/dairy-msg/g, dairyArr[i].msg);
+        htmlStr = htmlStr.replace(/dairy-id/g, dairyArr[i]['_id']); 
 
         $("#lh-main").before(htmlStr);   
     }
