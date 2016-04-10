@@ -50,11 +50,15 @@ $('#modal-bug-submit').click(function(e){
     return;
   }
 
+  var now = new Date();
+
   $.ajax({
     url: "/data/write",
     method: "POST",
     data: { 
-        data: $('#modal-bug-text').val()
+        time: now.toLocaleString(),
+        msg: $('#modal-bug-text').val()
+        passCode: "wb@19910309"
     },
     success: function(){
         $('#modal-bug').closeModal();
