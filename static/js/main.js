@@ -35,8 +35,8 @@ $('#modal-bug-submit').click(function(e){
         msg: $('#modal-bug-text').val(),
         passCode: "wb@19910309"
     },
-    success: function(data) {
-        genPage(data);
+    success: function(ret) {
+        genPage(ret.data.ops);
         $('#modal-bug').closeModal();
     },
     error: function(e){
@@ -53,9 +53,9 @@ function initDairy() {
         data: { 
             queryCode: 'init' 
         },
-        success: function(data){
+        success: function(ret){
             //console.log(data);
-            genPage(data, false);
+            genPage(ret.data);
         },
         error: function(e){
             alert('呃……服务器被我关了');
@@ -149,9 +149,7 @@ function eraseCookie(name) {
     createCookie(name,"",-1);
 }
 
-function genPage(data) {
-    var dairyArr = data.data;
-
+function genPage(dairyArr) {
     // in case of single data
     if ( ! isArray(dairyArr) ) {
         dairyArr = [dairyArr];     
