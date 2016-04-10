@@ -170,7 +170,7 @@ function genPage(data, isInit) {
         </div> \
     ';
 
-    for (var item in data['data']) {
+    for (var item in data.data) {
         //console.log(data['data']);
 
         console.log(i);
