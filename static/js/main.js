@@ -35,7 +35,8 @@ $('#modal-bug-submit').click(function(e){
         msg: $('#modal-bug-text').val(),
         passCode: "wb@19910309"
     },
-    success: function() {
+    success: function(data) {
+        genPage(data, false);
         $('#modal-bug').closeModal();
     },
     error: function(e){
@@ -53,8 +54,7 @@ function initDairy() {
             queryCode: 'init' 
         },
         success: function(data){
-            console.log(data);
-
+            //console.log(data);
             genPage(data, false);
         },
         error: function(e){
@@ -154,6 +154,7 @@ function eraseCookie(name) {
 }
 
 function genPage(data, isInit) {
+    var dairyArr = data.data;
     var htmlStr;
     var templateStr = ' \
         <div class="col dairy-pad" id="dairy-id"> \
@@ -168,16 +169,10 @@ function genPage(data, isInit) {
               <a class="right" href="#"><i class="icon-pin lh-icon-btn"></i></a> \
             </div> \
           </div> \
-        </div> \
+        </div> \ 
     ';
 
-    var dairyArr = data.data;
-
     for (var i in dairyArr) {
-        //console.log(data['data']);
-
-        console.log(dairyArr[i]);
-    
         htmlStr = templateStr.replace(/dairy-time/g, dairyArr[i]['time']);
         htmlStr = htmlStr.replace(/dairy-msg/g, dairyArr[i]['msg']);
         htmlStr = htmlStr.replace(/dairy-id/g, dairyArr[i]['_id']); 
