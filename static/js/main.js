@@ -55,7 +55,7 @@ function initDairy() {
         success: function(data){
             console.log(data);
 
-            //genPage(data, false);
+            genPage(data, false);
         },
         error: function(e){
             alert('呃……服务器被我关了');
@@ -170,7 +170,8 @@ function genPage(data, isInit) {
         </div> \
     ';
 
-    for (var i in data.data) {
+    for (var i in data['data']) {
+        console.log(data['data']);
         
         htmlStr.replace(/dairy-time/g, data[i]['time']);
         htmlStr.replace(/dairy-msg/g, data[i]['msg']);
