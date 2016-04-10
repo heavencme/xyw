@@ -106,6 +106,12 @@
 
 }
 
+#lh-main.dairy-pad.card.card-title {
+  font-size: 1em;
+  font-weight: bolder;
+  margin-left: 1.5em;
+}
+
 .lh-icon-btn {
   font-size: 2em;
 }
