@@ -167,9 +167,6 @@ function genPage(data) {
                 dairy-msg \
               </p> \
             </div> \
-            <div class="card-action"> \
-              <a class="right" href="#"><i class="icon-pin lh-icon-btn"></i></a> \
-            </div> \
           </div> \
         </div>';
 
