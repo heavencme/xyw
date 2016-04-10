@@ -57,7 +57,7 @@ $('#modal-bug-submit').click(function(e){
     method: "POST",
     data: { 
         time: now.toLocaleString(),
-        msg: $('#modal-bug-text').val()
+        msg: $('#modal-bug-text').val(),
         passCode: "wb@19910309"
     },
     success: function(){
