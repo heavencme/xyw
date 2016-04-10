@@ -173,7 +173,7 @@ function genPage(data, isInit) {
     for (var item in data.data) {
         //console.log(data['data']);
 
-        console.log(i);
+        console.log(item);
     
         htmlStr.replace(/dairy-time/g, item['time']);
         htmlStr.replace(/dairy-msg/g, item['msg']);
