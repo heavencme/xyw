@@ -44,19 +44,13 @@ function getData( d ){
                 } 
 
                 //console.log(d.responseObj);
-                if ( d.data[0].userName ) {
-                    d.responseObj.json({
-                        status: 'ok',
-                        msg:'found',
-                        data: d.data
-                    });
-                }
-                else {
-                    d.responseObj.json({
-                        result: 'failed',
-                        msg: 'dataErr'
-                    });
-                }
+                
+                d.responseObj.json({
+                    status: 'ok',
+                    msg:'found',
+                    data: d.data
+                });
+                
                 //console.log(d.responseObj);
                 //console.log(d.responseObj);
                                  
