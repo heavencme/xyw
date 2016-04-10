@@ -22,7 +22,11 @@ function getData( d ){
 	switch( d.database ){
 		case 'mongodb':
 			if( 'insert' == d.action ){
-
+                d.responseObj.json({
+                    status: 'ok',
+                    msg:'written',
+                    data: d.data
+                });
 
                 console.log( d.data );
                 writeLog( 'database', d.data );
