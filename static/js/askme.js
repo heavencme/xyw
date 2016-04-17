@@ -141,7 +141,7 @@ function eraseCookie(name) {
 }
 
 function genPage(questObj) {
-    var choicesStr;
+    var choicesStr = '';
     var choiceItem;
     var htmlStr;
     var templateStr = ' \
