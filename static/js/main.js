@@ -59,8 +59,8 @@ function initDairy() {
         success: function(ret){
             //console.log(data);
             if(ret.data && ret.data.length > 0) {
-                console.log(ret.data);
-                //genPage(ret.data);
+                //console.log(ret.data);
+                genPage(ret.data);
             }
         },
         error: function(e){
