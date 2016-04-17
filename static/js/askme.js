@@ -50,8 +50,8 @@ function initDairy() {
     });
 }
 
-$("#answear-submit").click(function(){
-
+$("#answear-submit").click(function(e){
+    console.log(e);
 });
 
 /* ripple effect */
@@ -147,7 +147,7 @@ function genPage(questObj) {
     var templateStr = ' \
         <div class="col dairy-pad"> \
           <div class="card"> \
-            <span class="card-title">questId</span> \
+            <span class="card-title">Question #questId</span> \
             <div class="card-content"> \
               <p> \
                 questMsg \
