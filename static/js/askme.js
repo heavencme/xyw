@@ -26,7 +26,7 @@ $('#modal-bug-submit').click(function(e){
 
 /*get dairy data*/
 function initDairy() {
-    
+
     $.ajax({
         url: "/data/askme",
         method: "POST",
@@ -37,6 +37,9 @@ function initDairy() {
             //console.log(data);
             if(ret.data && ret.data.length > 0) {
                 g_questArr = ret.data;
+                
+                console.log(g_questArr);
+
                 genPage( g_questArr[0] );
                 g_questArr.slice(0, 1);
             }
