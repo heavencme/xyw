@@ -1,0 +1,80 @@
+[
+    {
+        "questId": 0,
+        "questMsg": "想到我是你想到的是",
+        "choices": [
+            {
+                "next": 1,
+                "choiceMsg": "夜晚" 
+            },
+            {
+                "next": 1,
+                "choiceMsg": "白天" 
+            }
+        ]
+    },
+
+    {
+        "questId": 1,
+        "questMsg": "下面两种你更认可？",
+        "choices": [
+            {
+                "next": 2,
+                "choiceMsg": "白天阳光明媚，快乐幸福；夜晚不安全、疲劳"
+            },
+            {
+                "next": 2,
+                "choiceMsg": "夜晚静谧，安祥；白天嘈杂、劳累"
+            }
+        ]
+    },
+
+    {
+        "questId": 0,
+        "questMsg": "",
+        "choices": [
+            {
+                "next": 0,
+                "choiceMsg": ""
+            },
+            {
+                "next": 0,
+                "choiceMsg": ""
+            }
+        ]
+    },
+
+    {
+        "questId": 0,
+        "questMsg": "",
+        "choices": [
+            {
+                "next": 0,
+                "choiceMsg": ""
+            },
+            {
+                "next": 0,
+                "choiceMsg": ""
+            }
+        ]
+    },
+
+    {
+        "questId": 0,
+        "questMsg": "",
+        "choices": [
+            {
+                "next": 0,
+                "choiceMsg": ""
+            },
+            {
+                "next": 0,
+                "choiceMsg": ""
+            }
+        ]
+    }
+
+    
+    
+    
+]

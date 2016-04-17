@@ -8,6 +8,7 @@ var upload = multer({ dest: 'public/uploads/' });
 var mgDB = require('../database/mgDB');
 // get config
 var userConfig = require('../config/user.json');
+var askme = require('../config/askme.json');
 
 var router = express.Router();
 /**init a object of mongodb**/
@@ -108,6 +109,16 @@ router.post('/data/read', function(req, res, next) {
     writeLog('dataRead', ua);
 
     mgdb.find( dataEvents, 'find', 'dairy', {}, {}, {}, res );
+    return;
+});
+
+router.post('/data/askme', function(req, res, next) {
+    var ua = req.headers['user-agent'].toLowerCase();
+
+    //console.log(ua);
+    writeLog('askme', ua);
+
+    res.json(askme);
     return;
 });
 

@@ -1,8 +1,9 @@
 (function($){
 /* start */
 
-initDairy();
+g_questArr = {};
 
+initDairy();
 
 /* modal options */
 $('.modal-trigger').leanModal({
@@ -25,8 +26,9 @@ $('#modal-bug-submit').click(function(e){
 
 /*get dairy data*/
 function initDairy() {
+    
     $.ajax({
-        url: "/data/read",
+        url: "/data/askme",
         method: "POST",
         data: { 
             queryCode: 'init' 
@@ -34,7 +36,9 @@ function initDairy() {
         success: function(ret){
             //console.log(data);
             if(ret.data && ret.data.length > 0) {
-                genPage(ret.data);
+                g_questArr = ret.data;
+                genPage( g_questArr[0] );
+                g_questArr.slice(0, 1);
             }
         },
         error: function(e){
@@ -42,6 +46,10 @@ function initDairy() {
         }
     });
 }
+
+$("#answear-submit").click(function(){
+
+});
 
 /* ripple effect */
 $(".ripple-btn").click(addRippleEffect);
@@ -129,32 +137,42 @@ function eraseCookie(name) {
     createCookie(name,"",-1);
 }
 
-function genPage(dairyArr) {
-    // in case of single data
-    if ( ! isArray(dairyArr) ) {
-        dairyArr = [dairyArr];     
-    }
-
+function genPage(questObj) {
+    var choicesStr;
+    var choiceItem;
     var htmlStr;
     var templateStr = ' \
-        <div class="col dairy-pad" id="dairy-id"> \
+        <div class="col dairy-pad"> \
           <div class="card"> \
-            <span class="card-title">dairy-time</span> \
+            <span class="card-title">questId</span> \
             <div class="card-content"> \
               <p> \
-                dairy-msg \
+                questMsg \
               </p> \
             </div> \
+            <form action="#"> \
+                allChoices \
+            </form> \
+            <a href="#!" id="answear-submit" class="btn-flat btn waves-effect waves-light blue lighten-2 "> \
+                <i class="icon-ok"></i> \
+            </a> \
           </div> \
         </div>';
+    
+    for ( var i in questObj['choices'] ) {
+        choiceItem = '<p><input name="choices-group" type="radio" next="nextId" id="choice-choiceId" /><label for="choice-choiceId">choiceMsg</label></p>';
+        choiceItem = choiceItem.replace(/choiceId/g, i);
+        choiceItem = choiceItem.replace(/nextId/g, questObj['choices'][i]['next']);
+        choiceItem = choiceItem.replace(/choiceMsg/g, questObj['choices'][i]['choiceMsg']);
 
-    for (var i in dairyArr) {
-        htmlStr = templateStr.replace(/dairy-time/g, dairyArr[i]['time']);
-        htmlStr = htmlStr.replace(/dairy-msg/g, dairyArr[i]['msg']);
-        htmlStr = htmlStr.replace(/dairy-id/g, dairyArr[i]['_id']); 
-
-        $("#lh-main").prepend(htmlStr);   
+        choicesStr += choiceItem;
     }
+
+    htmlStr = templateStr.replace(/questId/g, questObj['questId']);
+    htmlStr = htmlStr.replace(/questMsg/g, questObj['questMsg']);
+    htmlStr = htmlStr.replace(/allChoices/g, choicesStr);
+
+    $("#lh-main").html(htmlStr);   
 }
 
 function isArray(obj) {
