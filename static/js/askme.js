@@ -20,32 +20,7 @@ $('.modal-trigger').leanModal({
 
 /*modal content submit */
 $('#modal-bug-submit').click(function(e){
-  if( ! textLenValidate('modal-bug-text', 500) ) {
-    return;
-  }
-
-  var now = new Date();
-
-  $.ajax({
-    url: "/data/write",
-    method: "POST",
-    data: { 
-        timeStamp: now.getTime(),
-        time: now.toLocaleString().replace(/GMT\+8/g, ''),
-        msg: $('#modal-bug-text').val(),
-        passCode: $('#password').val()
-    },
-    success: function(ret) {
-        if(ret.status == 'ok') {
-            genPage(ret.data.ops);
-        }
-
-        $('#modal-bug').closeModal();
-    },
-    error: function(e){
-        alert('呃……服务器被我关了');
-    }
-  });
+  $('#modal-bug').closeModal();   
 });
 
 /*get dairy data*/
