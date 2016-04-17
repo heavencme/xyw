@@ -168,7 +168,10 @@ function genPage(questObj) {
         choiceItem = choiceItem.replace(/nextId/g, questObj['choices'][i]['next']);
         choiceItem = choiceItem.replace(/choiceMsg/g, questObj['choices'][i]['choiceMsg']);
 
-        choicesStr += choiceItem;
+        if(choiceItem) {
+            choicesStr += choiceItem;
+        }
+        
     }
 
     htmlStr = templateStr.replace(/questId/g, questObj['questId']);
