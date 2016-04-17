@@ -36,7 +36,7 @@ function initDairy() {
         success: function(ret){
             //console.log(data);
             if(ret && ret.length > 0) {
-                g_questArr = ret.data;
+                g_questArr = ret;
                 
                 console.log(g_questArr);
 
