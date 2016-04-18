@@ -84,6 +84,7 @@ router.post('/data/write', function(req, res, next) {
             recData.userName = userConfig[idx].userName;
             recData.time = reqData.time;
             recData.msg = reqData.msg;
+            recData.timeStamp = reqData.timeStamp;
 
             mgdb.insert(dataEvents, 'insert', 'dairy', recData, res);    
             break;
