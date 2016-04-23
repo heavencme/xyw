@@ -110,8 +110,8 @@ function createRipple(x, y) {
     var ripple = $('<div class="ripple-outer"></div><div class="ripple-inner"></div>');
     
     ripple.appendTo(container).css({
-        left: x,
-        top: y
+        left: x -25,
+        top: y - 25
     });
 
     setTimeout(function () {
