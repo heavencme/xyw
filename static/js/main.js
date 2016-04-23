@@ -239,7 +239,7 @@ Date.prototype.Format = function(fmt) {
 
 //the Touch
 function Touch() {
-    this.lastPoint = {};
+    
 }
 Touch.prototype={
     constructor:Touch,
@@ -256,39 +256,33 @@ Touch.prototype={
         if (!event.changedTouches.length) 
            return;
         //"this" points to spirit target( document)
-        var touch = event.changedTouches[0],
-            x = touch.screenX,
-            y = touch.screenY;
+        var touch = event.changedTouches[0];
+        this.startX = touch.pageX; //defined in the object window
+        this.startY = touch.pageY;
 
-        this.lastPoint.x =  x;
-        this.lastPoint.y = y; 
+          
     },
     touchMove:function () {
         if (!event.changedTouches.length) 
           return;
         var touch = event.changedTouches[0],
-            x = touch.screenX,
-            y = touch.screenY;
-
-        var isMoveX = Math.abs(x - this.lastPoint.x) > 5;
-        var isMoveY = Math.abs(y - this.lastPoint.y) > 5;
-
-        this.lastPoint.x =  x;
-        this.lastPoint.y = y; 
-
+            x = touch.screenX || touch.pageX,
+            y = touch.screenY || touch.pageY;
         
         createRipple(x,y); 
-
-
     },
     touchEnd:function(){
         
-        var touch = event.changedTouches[0],
-            x = touch.screenX,
-            y = touch.screenY;
-
-        this.lastPoint.x =  x;
-        this.lastPoint.y = y; 
+        var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
+        
+        //move left
+        if( x<this.startX-8){//prevent mis-operation
+            //alert('left');
+        }
+        //move right
+        else if(x>this.startX+8){
+            //alert('right');
+        }
     }
 }
 
