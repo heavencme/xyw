@@ -117,19 +117,23 @@ function createRipple(x, y) {
     var max = 100;
 
     
-    while (g_ripples.length > max) {
-        g_ripples.shift().remove();
+    if (g_ripples.length > max) {
+        for (var i in g_ripples) {
+            if (i % 2 == 0) {
+                g_ripples.splice(i, 1).remove();
+            }
+        }
     }
 
-    if (g_ripples.length <= max) {
-        ripple.appendTo(container);
-        
-        setTimeout(function () {
-            ripple.remove();
-        }, 800);
+    
+    ripple.appendTo(container);
+    
+    setTimeout(function () {
+        ripple.remove();
+    }, 800);
 
-        g_ripples.push(ripple);
-    }
+    g_ripples.push(ripple);
+   
 };
 
 /* Common functions */
