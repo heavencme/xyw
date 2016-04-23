@@ -260,9 +260,7 @@ Touch.prototype={
         var touch = event.changedTouches[0];
         startX = touch.pageX; //defined in the object window
         startY = touch.pageY;
-        this.spirit = document.createElement("div");
-        this.spirit.className = "touch-pad";
-        document.body.appendChild(this.spirit);    
+        createRipple(touch, this);    
     },
     touchMove:function () {
         if (!this.spirit || !event.changedTouches.length) 
