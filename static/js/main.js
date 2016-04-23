@@ -242,6 +242,7 @@ function Touch() {
 }
 Touch.prototype={
     constructor:Touch,
+    token: 6,
     setTouchEvent:function() {
         var target=document;
         // add touch start listener
@@ -271,6 +272,7 @@ Touch.prototype={
     touchEnd:function(){
         
         var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
+        alert(this.token);
         //move left
         if( x<this.startX-8){//prevent mis-operation
             //alert('left');
