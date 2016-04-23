@@ -71,6 +71,7 @@ function initDairy() {
                     createRipple(e, this);
                 });
             } else {
+                alert('touch');
                 var bodyTouch=new Touch();
                 bodyTouch.setTouchEvent();
             }
