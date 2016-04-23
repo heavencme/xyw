@@ -59,16 +59,23 @@ function initDairy() {
         },
         success: function(ret){
             //console.log(data);
-            if(ret.data && ret.data.length > 0) {
+            if (ret.data && ret.data.length > 0) {
                 //console.log(ret.data);
                 genPage(ret.data);
             }
 
             //register ripple effects
-            container.mousemove(function (e) {
+            if (container.mousemove) {
+                alert('mousemove');
+                container.mousemove(function (e) {
+                    createRipple(e, this);
+                });
+            } else {
+                var bodyTouch=new Touch();
+                bodyTouch.setTouchEvent();
+            }
+
                 
-                createRipple(e, this);
-            });
             
         },
         error: function(e){
@@ -295,9 +302,6 @@ Touch.prototype={
         }
     }
 }
-
-var bodyTouch=new Touch();
-bodyTouch.setTouchEvent();
 
 /**functions to be called**/
 
