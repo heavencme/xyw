@@ -274,7 +274,7 @@ Touch.prototype={
     touchEnd:function(){
         
         var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
-        alert(this.token);
+        //alert(this.token);
         //move left
         if( x<this.startX-8){//prevent mis-operation
             //alert('left');
