@@ -114,12 +114,14 @@ function createRipple(x, y) {
         top: y - 25
     });
 
+    var max = 100;
+
     
-    while (g_ripples.length > 10) {
+    while (g_ripples.length > max) {
         g_ripples.shift().remove();
     }
 
-    if (g_ripples.length <= 10) {
+    if (g_ripples.length <= max) {
         ripple.appendTo(container);
         
         setTimeout(function () {
