@@ -65,17 +65,14 @@ function initDairy() {
             }
 
             //register ripple effects
-            if (container.mousemove) {
-                alert('mousemove');
+            
                 container.mousemove(function (e) {
                     createRipple(e, this);
                 });
-            } else {
-                alert('touch');
+           
                 var bodyTouch=new Touch();
                 bodyTouch.setTouchEvent();
-            }
-
+           
                 
             
         },
