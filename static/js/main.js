@@ -287,11 +287,11 @@ Touch.prototype={
         var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
         //move left
         if( x<startX-8){//prevent mis-operation
-            console.log(x);
+            alert('left');
         }
         //move right
         else if(x>startX+8){
-            console.log(y);
+            alert('right');
         }
     }
 }
