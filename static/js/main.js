@@ -254,46 +254,29 @@ Touch.prototype={
         target.addEventListener("touchend", this.touchEnd, false);
     },
     touchStart:function(){
-        if (this.spirit || !event.changedTouches.length) 
+        if (!event.changedTouches.length) 
            return;
         //"this" points to spirit target( document)
         var touch = event.changedTouches[0];
-        startX = touch.pageX; //defined in the object window
-        startY = touch.pageY;
-        createRipple(touch, this);    
+        this.startX = touch.pageX; //defined in the object window
+        this.startY = touch.pageY;   
     },
     touchMove:function () {
-        if (!this.spirit || !event.changedTouches.length) 
+        if (!event.changedTouches.length) 
           return;
         var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
-        this.spirit.style.cssText = 'left:' + x + 'px; top:' + y + 'px;';  
-        if (Math.abs(y-startY)>100) {
-            document.body.removeChild(this.spirit);
-            this.spirit = null;
-            return true;//allow default events to happen
-        }
-        else if(Math.abs(x-startX)>8){
-            event.preventDefault();
-            return false;//prevent default events,however it sometimes doesn't work well
-        }
-        else{
-            document.body.removeChild(this.spirit);
-            this.spirit = null;
-            return true;
-        }
+        
+        createRipple(touch, this); 
     },
     touchEnd:function(){
-        if (!this.spirit) 
-            return;
-        document.body.removeChild(this.spirit);
-        this.spirit = null;
+        
         var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
         //move left
-        if( x<startX-8){//prevent mis-operation
+        if( x<this.startX-8){//prevent mis-operation
             alert('left');
         }
         //move right
-        else if(x>startX+8){
+        else if(x>this.startX+8){
             alert('right');
         }
     }
