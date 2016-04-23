@@ -276,9 +276,8 @@ Touch.prototype={
         this.lastPoint.x =  x;
         this.lastPoint.y = y; 
 
-        if (isMoveX || isMoveY) {
-            createRipple(x,y); 
-        }
+        
+        createRipple(x,y); 
 
 
     },
