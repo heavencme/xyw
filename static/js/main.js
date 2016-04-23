@@ -279,8 +279,8 @@ Touch.prototype={
         if (!event.changedTouches.length) 
           return;
         var touch = event.changedTouches[0],
-            x = touch.pageX,
-            y = touch.pageY;
+            x = touch.clientX,
+            y = touch.clientY;
         
         createRipple(x,y); 
     },
