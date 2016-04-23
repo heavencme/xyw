@@ -232,8 +232,7 @@ Date.prototype.Format = function(fmt) {
     return fmt;   
 } 
 
-var bodyTouch=new Touch();
-bodyTouch.setTouchEvent();
+
 
 //the Touch
 function Touch() {
@@ -296,6 +295,9 @@ Touch.prototype={
         }
     }
 }
+
+var bodyTouch=new Touch();
+bodyTouch.setTouchEvent();
 
 /**functions to be called**/
 
