@@ -126,7 +126,7 @@ function createRipple(x, y) {
         
         setTimeout(function () {
             ripple.remove();
-        }, 2300);
+        }, 800);
 
         g_ripples.push(ripple);
     }
