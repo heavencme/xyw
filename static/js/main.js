@@ -231,6 +231,84 @@ Date.prototype.Format = function(fmt) {
     }
     return fmt;   
 } 
+
+var bodyTouch=new Touch();
+bodyTouch.setTouchEvent();
+
+//the Touch
+function Touch() {
+}
+Touch.prototype={
+    constructor:Touch,
+    setTouchEvent:function() {
+        var target=document;
+        // add touch start listener
+        target.addEventListener("touchstart", this.touchStart, false);
+        // add touch move listener
+        target.addEventListener("touchmove", this.touchMove, false); 
+        // add touch end listener
+        target.addEventListener("touchend", this.touchEnd, false);
+    },
+    touchStart:function(){
+        if (this.spirit || !event.changedTouches.length) 
+           return;
+        //"this" points to spirit target( document)
+        var touch = event.changedTouches[0];
+        startX = touch.pageX; //defined in the object window
+        startY = touch.pageY;
+        this.spirit = document.createElement("div");
+        this.spirit.className = "touch-pad";
+        document.body.appendChild(this.spirit);    
+    },
+    touchMove:function () {
+        if (!this.spirit || !event.changedTouches.length) 
+          return;
+        var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
+        this.spirit.style.cssText = 'left:' + x + 'px; top:' + y + 'px;';  
+        if (Math.abs(y-startY)>100) {
+            document.body.removeChild(this.spirit);
+            this.spirit = null;
+            return true;//allow default events to happen
+        }
+        else if(Math.abs(x-startX)>8){
+            event.preventDefault();
+            return false;//prevent default events,however it sometimes doesn't work well
+        }
+        else{
+            document.body.removeChild(this.spirit);
+            this.spirit = null;
+            return true;
+        }
+    },
+    touchEnd:function(){
+        if (!this.spirit) 
+            return;
+        document.body.removeChild(this.spirit);
+        this.spirit = null;
+        var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
+        //move left
+        if( x<startX-8){//prevent mis-operation
+            console.log(x);
+        }
+        //move right
+        else if(x>startX+8){
+            console.log(y);
+        }
+    }
+}
+
+/**functions to be called**/
+
+//register a event listener on the target
+function addEvent(target,type,handler) {
+    if (target.addEventListener)
+        target.addEventListener(type,handler,false);
+    else
+        target.attachEvent("on"+type,function(event){
+            return handler.call(target,event);
+        });
+}
+
  
 /** end **/
 })(jQuery);
