@@ -4,6 +4,7 @@
 var container = $('body');
 
 initDairy();
+var g_ripples = [];
 
 /* modal options */
 $('.modal-trigger').leanModal({
@@ -108,15 +109,25 @@ function addRippleEffect(e) {
 
 function createRipple(x, y) {
     var ripple = $('<div class="ripple-outer"></div><div class="ripple-inner"></div>');
-    
-    ripple.appendTo(container).css({
+    ripple.css({
         left: x -25,
         top: y - 25
     });
 
-    setTimeout(function () {
-        ripple.remove();
-    }, 2300);
+    
+    while (g_ripples.length > 10) {
+        g_ripples.shift().remove();
+    }
+
+    if (g_ripples.length <= 10) {
+        ripple.appendTo(container);
+        
+        setTimeout(function () {
+            ripple.remove();
+        }, 2300);
+
+        g_ripples.push(ripple);
+    }
 };
 
 /* Common functions */
