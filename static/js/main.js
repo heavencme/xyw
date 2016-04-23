@@ -1,8 +1,9 @@
 (function($){
 /* start */
 
-initDairy();
+var container = $('body');
 
+initDairy();
 
 /* modal options */
 $('.modal-trigger').leanModal({
@@ -62,6 +63,13 @@ function initDairy() {
                 //console.log(ret.data);
                 genPage(ret.data);
             }
+
+            //register ripple effects
+            container.mousemove(function (e) {
+                
+                createRipple(e, this);
+            });
+            
         },
         error: function(e){
             alert('呃……服务器被我关了');
@@ -93,6 +101,20 @@ function addRippleEffect(e) {
     return false;
 }
 
+function createRipple(e) {
+    var x = e.pageX || e.left;
+    var y = e.pageY || e.top;
+    var ripple = $('<div class="ripple-outer"></div><div class="ripple-inner"></div>');
+    
+    ripple.appendTo(container).css({
+        left: x - 25,
+        top: y - 25
+    });
+
+    setTimeout(function () {
+        ripple.remove();
+    }, 2300);
+};
 
 /* Common functions */
 
@@ -209,7 +231,7 @@ Date.prototype.Format = function(fmt) {
     }
     return fmt;   
 } 
-
+ 
 /** end **/
 })(jQuery);
 
