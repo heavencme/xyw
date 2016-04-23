@@ -239,10 +239,10 @@ Date.prototype.Format = function(fmt) {
 
 //the Touch
 function Touch() {
+    this.token = 3;
 }
 Touch.prototype={
     constructor:Touch,
-    token: 6,
     setTouchEvent:function() {
         var target=document;
         // add touch start listener
@@ -258,7 +258,9 @@ Touch.prototype={
         //"this" points to spirit target( document)
         var touch = event.changedTouches[0];
         this.startX = touch.pageX; //defined in the object window
-        this.startY = touch.pageY;   
+        this.startY = touch.pageY;
+
+        this.token = touch.pageY;   
     },
     touchMove:function () {
         if (!event.changedTouches.length) 
@@ -272,7 +274,7 @@ Touch.prototype={
     touchEnd:function(){
         
         var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
-        //alert(this.token);
+        alert(this.token);
         //move left
         if( x<this.startX-8){//prevent mis-operation
             //alert('left');
