@@ -239,7 +239,7 @@ Date.prototype.Format = function(fmt) {
 
 //the Touch
 function Touch() {
-    this.token = 3;
+    this.lastPoint = {};
 }
 Touch.prototype={
     constructor:Touch,
@@ -256,11 +256,12 @@ Touch.prototype={
         if (!event.changedTouches.length) 
            return;
         //"this" points to spirit target( document)
-        var touch = event.changedTouches[0];
-        this.startX = touch.pageX; //defined in the object window
-        this.startY = touch.pageY;
+        var touch = event.changedTouches[0],
+            x = touch.screenX || touch.pageX,
+            y = touch.screenY || touch.pageY;
 
-        this.token = touch.pageY;   
+        this.lastPoint.x =  x;
+        this.lastPoint.y = y; 
     },
     touchMove:function () {
         if (!event.changedTouches.length) 
@@ -268,13 +269,24 @@ Touch.prototype={
         var touch = event.changedTouches[0],
             x = touch.screenX || touch.pageX,
             y = touch.screenY || touch.pageY;
-        
-        createRipple(x,y); 
+
+        var isMoveX = Math.abs(x - this.lastPoint.x) > screen.width/30;
+        var isMoveY = Math.abs(y - this.lastPoint.y) > screen.height/30;
+
+        this.lastPoint.x =  x;
+        this.lastPoint.y = y; 
+
+        if (isMoveX || isMoveY) {
+            createRipple(x,y); 
+        }
+
+
     },
     touchEnd:function(){
         
-        var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
-        //alert(this.token);
+        var touch = event.changedTouches[0],
+            x = touch.screenX || touch.pageX,
+            y = touch.screenY || touch.pageY;
         //move left
         if( x<this.startX-8){//prevent mis-operation
             //alert('left');
