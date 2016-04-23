@@ -133,25 +133,10 @@ span.card-title {
   color: #000;
 }
 
-.touch-pad {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  display: block;
-  border-radius:15px;
-  -moz-border-radius: 10em;
-  -webkit-border-radius: 15px;
-  -khtml-border-radius: 10em;
-  background: rgba(128,128,128,0.1);
-  box-shadow: 1px 1px 8px rgba(128,128,128,0.1) ;
-  -moz-box-shadow: 1px 1px 8px rgba(128,128,128,0.1) ;
-  -webkit-box-shadow: 1px 1px 8px rgba(128,128,128,0.1) ;
-}
-
 /* ripple effects */
 
 .ripple-inner, .ripple-outer {
-  position: absolute;
+  position: fixed;
   width: 50px;
   height: 50px;
   border: 1px solid #87ceeb;
