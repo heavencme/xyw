@@ -270,8 +270,8 @@ Touch.prototype={
             x = touch.screenX || touch.pageX,
             y = touch.screenY || touch.pageY;
 
-        var isMoveX = Math.abs(x - this.lastPoint.x) > screen.width/30;
-        var isMoveY = Math.abs(y - this.lastPoint.y) > screen.height/30;
+        var isMoveX = Math.abs(x - this.lastPoint.x) > 5;
+        var isMoveY = Math.abs(y - this.lastPoint.y) > 5;
 
         this.lastPoint.x =  x;
         this.lastPoint.y = y; 
@@ -287,14 +287,9 @@ Touch.prototype={
         var touch = event.changedTouches[0],
             x = touch.screenX || touch.pageX,
             y = touch.screenY || touch.pageY;
-        //move left
-        if( x<this.startX-8){//prevent mis-operation
-            //alert('left');
-        }
-        //move right
-        else if(x>this.startX+8){
-            //alert('right');
-        }
+
+        this.lastPoint.x =  x;
+        this.lastPoint.y = y; 
     }
 }
 
