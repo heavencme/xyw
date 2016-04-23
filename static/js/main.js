@@ -257,8 +257,8 @@ Touch.prototype={
            return;
         //"this" points to spirit target( document)
         var touch = event.changedTouches[0],
-            x = touch.screenX || touch.pageX,
-            y = touch.screenY || touch.pageY;
+            x = touch.screenX,
+            y = touch.screenY;
 
         this.lastPoint.x =  x;
         this.lastPoint.y = y; 
@@ -267,8 +267,8 @@ Touch.prototype={
         if (!event.changedTouches.length) 
           return;
         var touch = event.changedTouches[0],
-            x = touch.screenX || touch.pageX,
-            y = touch.screenY || touch.pageY;
+            x = touch.screenX,
+            y = touch.screenY;
 
         var isMoveX = Math.abs(x - this.lastPoint.x) > 5;
         var isMoveY = Math.abs(y - this.lastPoint.y) > 5;
@@ -285,8 +285,8 @@ Touch.prototype={
     touchEnd:function(){
         
         var touch = event.changedTouches[0],
-            x = touch.screenX || touch.pageX,
-            y = touch.screenY || touch.pageY;
+            x = touch.screenX,
+            y = touch.screenY;
 
         this.lastPoint.x =  x;
         this.lastPoint.y = y; 
