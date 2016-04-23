@@ -139,7 +139,7 @@ span.card-title {
   position: fixed;
   width: 3em;
   height: 3em;
-  border: 1em solid #87ceeb;
+  border: 0.618em solid #87ceeb;
   border-radius: 50%;
   -webkit-transform: scale(0);
   -ms-transform: scale(0);
