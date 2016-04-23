@@ -67,7 +67,7 @@ function initDairy() {
             //register ripple effects
             
                 container.mousemove(function (e) {
-                    createRipple(e, this);
+                    createRipple( (e.pageX || e.left), (e.pageY || e.right) );
                 });
            
                 var bodyTouch=new Touch();
@@ -106,14 +106,12 @@ function addRippleEffect(e) {
     return false;
 }
 
-function createRipple(e) {
-    var x = e.pageX || e.left;
-    var y = e.pageY || e.top;
+function createRipple(x, y) {
     var ripple = $('<div class="ripple-outer"></div><div class="ripple-inner"></div>');
     
     ripple.appendTo(container).css({
-        left: x - 25,
-        top: y - 25
+        left: x - 5,
+        top: y - 5
     });
 
     setTimeout(function () {
@@ -264,9 +262,11 @@ Touch.prototype={
     touchMove:function () {
         if (!event.changedTouches.length) 
           return;
-        var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
+        var touch = event.changedTouches[0],
+            x = touch.screenX || touch.pageX,
+            y = touch.screenY || touch.pageY;
         
-        createRipple(touch, this); 
+        createRipple(x,y); 
     },
     touchEnd:function(){
         
