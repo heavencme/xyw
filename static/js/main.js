@@ -379,8 +379,8 @@ function Touch(tar) {
     this.tar = tar;
     this.startSec = 0;
     this.startTar;
+    this.startPos;
     this.clickTriggered = 0;
-    this.startPos= new Object();
 }
 Touch.prototype={
     constructor:Touch,
