@@ -262,8 +262,16 @@ Date.prototype.Format = function(fmt) {
 function regPageLink(target, appendTar){
     $(target).click(function(){
         var clickTarId = $(this).attr("id");
+
+        //guard judge
         for (var i in g_pageLinkArr) {
             if ( g_pageLinkArr[i] == clickTarId ) {
+                $( "#" + g_pageLinkArr[i] ).children()
+                    .find(".grey-text")
+                    .attr("style", "");
+
+                g_pageLinkArr.splice(i,1);
+
                 return;
             }
         }
