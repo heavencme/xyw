@@ -123,7 +123,11 @@ function createRipple(x, y) {
     if ( arrLen > max) {
         for (i = 1; i < arrLen; i += 2 ) {
             tmpRipple = g_ripples.splice(i, 1);
-            tmpRipple.remove();
+            if(tmpRipple.remove) {
+                tmpRipple.remove();
+            } else {
+                console.log(i + tmpRipple.toString());
+            }
             arrLen --;
         }
     }
