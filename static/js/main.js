@@ -417,6 +417,9 @@ Touch.prototype={
             return true;
         }
 
+        // prevent click, and trigger that with touchEnd in case of double triggered
+        event.preventDefault();
+
         var touches = event.changedTouches;
 
         this.startSec = new Date().getTime();
@@ -435,9 +438,6 @@ Touch.prototype={
     touchMove:function () {
         if (!event.changedTouches.length) 
           return;
-
-        // prevent click, and trigger that with touchEnd in case of double triggered
-        event.preventDefault();
 
         var touch = event.changedTouches[0],
             x = touch.clientX,
