@@ -251,7 +251,18 @@ Date.prototype.Format = function(fmt) {
     return fmt;   
 } 
 
+//page link
+function regPageLink(target){
+    $(target).click(function(){
+        var htmlStr = '\
+            <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light center z-depth-2" style="background:dairy-link-color"> \
+                <i class="page-link">dairy-index</i> \
+            </a>';
 
+        htmlStr = htmlStr.replace( /dairy-index/g, $(this).attr("id") ); 
+        htmlStr = htmlStr.replace( /dairy-link-color/g, "#ff0000");
+    });
+}
 
 //the Touch
 function Touch(tar) {
