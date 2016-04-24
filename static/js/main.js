@@ -114,7 +114,7 @@ function createRipple(x, y) {
         top: y - 25
     });
 
-    var max = 2;
+    var max = 50;
     var i = 0;
     var arrLen = g_ripples.length;
     var tmpRipple;
@@ -123,14 +123,10 @@ function createRipple(x, y) {
     if ( arrLen > max) {
         for (i = 1; i < arrLen; i += 2 ) {
 
+            /* array splice cause obj die, and remove will be undefined*/
             g_ripples[i].remove();
 
             tmpRipple = g_ripples.splice(i, 1);
-            if(tmpRipple.remove) {
-                //tmpRipple.remove();
-            } else {
-                console.log(i + tmpRipple.toString());
-            }
             arrLen --;
         }
     }
