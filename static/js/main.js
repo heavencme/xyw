@@ -381,7 +381,7 @@ function Touch(tar) {
 }
 Touch.prototype={
     constructor:Touch,
-    setTouchEvent:function() {
+    setTouchEvent:function(event) {
         var target=this.tar;
         // add touch start listener
         target.addEventListener("touchstart", this.touchStart, true);
@@ -390,7 +390,7 @@ Touch.prototype={
         // add touch end listener
         target.addEventListener("touchend", this.touchEnd, true);
     },
-    touchStart:function(){
+    touchStart:function(event){
         if (!event.changedTouches.length) {
             return;
         }
@@ -402,25 +402,19 @@ Touch.prototype={
         }
           
     },
-    touchMove:function () {
+    touchMove:function (event) {
         if (!event.changedTouches.length) 
           return;
         var touch = event.changedTouches[0],
             x = touch.clientX,
             y = touch.clientY;
 
-            var nowSec = new Date().getTime();
-        
-        alert(nowSec - startSec);
+        event.target.click();
         
         createRipple(x,y); 
     },
     touchEnd:function(){
-        var nowSec = new Date().getTime();
-        
-        alert(nowSec - startSec);
         event.target.click();
-        
     }
 }
 
