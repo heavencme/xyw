@@ -284,7 +284,7 @@ function getPageLinkFromCookie(){
 
 function genPageLink(appendTar) {
     var pageLinkArrFromCookie = getPageLinkFromCookie();
-    if(pageLinkArrFromCookie.length > 0){
+    if(pageLinkArrFromCookie && pageLinkArrFromCookie.length > 0){
         g_pageLinkArr = pageLinkArrFromCookie;
         for (var i in g_pageLinkArr) {
             createOrSetPageLink(g_pageLinkArr[i], appendTar);
