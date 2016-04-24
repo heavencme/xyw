@@ -420,8 +420,9 @@ Touch.prototype={
         var nowSec = new Date().getTime();
         console.log(nowSec - this.startSec);
 
-        if (clickTriggered == 0 && event.target == this.startTar && nowSec - this.startSec > 5) {
+        if (this.clickTriggered == 0 && event.target == this.startTar && nowSec - this.startSec > 5) {
             event.target.click();
+            this.clickTriggered ++;
         }
         
     }
