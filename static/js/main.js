@@ -66,13 +66,8 @@ function initDairy() {
             }
 
             //register ripple effects
-            
-                container.mousemove(function (e) {
-                    createRipple(e.clientX, e.clientY);
-                });
-           
-                var bodyTouch=new Touch($("#home")[0]);
-                bodyTouch.setTouchEvent();
+            var bodyTouch=new Touch($("#home")[0]);
+            bodyTouch.setTouchEvent();
         },
         error: function(e){
             alert('呃……服务器被我关了');
