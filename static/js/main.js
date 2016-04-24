@@ -70,7 +70,7 @@ function initDairy() {
             bodyTouch.setTouchEvent();
 
             //register page link
-            regPageLink(".dairy-pad", "#lh-logo");
+            regPageLink(".dairy-pad", "#page-link");
         },
         error: function(e){
             alert('呃……服务器被我关了');
@@ -255,17 +255,17 @@ Date.prototype.Format = function(fmt) {
 } 
 
 //page link
-function regPageLink(target, insertAfterTar){
+function regPageLink(target, prependTar){
     $(target).click(function(){
         var htmlStr = '\
-            <a href="#dairy-index" class="page-link btn-floating btn-small waves-effect waves-light centre z-depth-2" style="background:dairy-link-color"> \
+            <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light centre z-depth-2" style="background:dairy-link-color"> \
                 dairy-index \
             </a>';
 
         htmlStr = htmlStr.replace( /dairy-index/g, $(this).attr("id") ); 
         htmlStr = htmlStr.replace( /dairy-link-color/g, "#ff0000");
 
-        $(htmlStr).insertAfter(insertAfterTar);
+        $(prependTar).prepend(htmlStr);
     });
 }
 
