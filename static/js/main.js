@@ -271,6 +271,7 @@ function regPageLink(target, appendTar){
                     .attr("style", "");
 
                 g_pageLinkArr.splice(i,1);
+                $("#page-link").children()[i].remove();
 
                 return;
             }
