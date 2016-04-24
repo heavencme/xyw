@@ -377,6 +377,7 @@ function initPageLink(clickTarId, appendTar) {
 //the Touch
 function Touch(tar) {
     this.tar = tar;
+    this.startSec = 0;
 }
 Touch.prototype={
     constructor:Touch,
@@ -391,13 +392,12 @@ Touch.prototype={
     },
     touchStart:function(){
         if (!event.changedTouches.length) {
-            event.target.click();
             return;
         }
 
         var touches = event.changedTouches;
         for (var i in touches) {
-            event.target.click();
+            this.startSec = new Date().getTime();
             createRipple( touches[i].clientX, touches[i].clientY ); 
         }
           
@@ -412,17 +412,11 @@ Touch.prototype={
         createRipple(x,y); 
     },
     touchEnd:function(){
-        
-        var touch = event.changedTouches[0],x = touch.pageX,  y = touch.pageY;
-        
-        //move left
-        if( x<this.startX-8){//prevent mis-operation
-            //alert('left');
+        var nowSec = new Date().getTime();
+        if (nowSec - startSec > 300) {
+            event.target.click();
         }
-        //move right
-        else if(x>this.startX+8){
-            //alert('right');
-        }
+        
     }
 }
 
