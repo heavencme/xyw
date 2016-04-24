@@ -271,6 +271,8 @@ function regPageLink(target, appendTar){
                     .attr("style", "");
 
                 g_pageLinkArr.splice(i,1);
+                flushPageLinkToCookie();
+
                 $("#page-link").children()[i].remove();
                 g_pageLinkIndex --;
 
@@ -293,6 +295,7 @@ function regPageLink(target, appendTar){
         $(appendTar).append(htmlStr);
 
         g_pageLinkArr.push(clickTarId);
+        flushPageLinkToCookie();
 
         //marked color
         $(this).children().find(".grey-text").attr("style", "background:" + curColor + ";");
@@ -307,11 +310,38 @@ function regPageLink(target, appendTar){
                 .attr("style", "");
 
             g_pageLinkArr.shift();
+            flushPageLinkToCookie();
         }
         
         g_pageLinkIndex ++;
         g_pageLinkIndex %= pageLinkNum;
     });
+}
+
+function flushPageLinkToCookie() {
+    setCookie('pageLinkArr', g_pageLinkArr.toString(), 180);
+}
+
+function getPageLinkFromCookie(){
+    var cookieStr = getCookie('pageLinkArr');
+    if (cookieStr) {
+        console.log(cookieStr.split(','));
+        return cookieStr.split(',');
+    } else {
+        return null;
+    }
+    
+}
+
+function genPageLink(appendTar) {
+    var pageLinkArrFromCookie = getPageLinkFromCookie();
+    if(pageLinkArrFromCookie && pageLinkArrFromCookie.length > 0){
+        g_pageLinkArr = pageLinkArrFromCookie;
+        for (var i in g_pageLinkArr) {
+            //createOrSetPageLink(g_pageLinkArr[i], appendTar);
+        }
+        
+    }
 }
 
 //the Touch
