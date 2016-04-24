@@ -265,11 +265,11 @@ Touch.prototype={
     setTouchEvent:function() {
         var target=document;
         // add touch start listener
-        target.addEventListener("touchstart", this.touchStart, false);
+        target.addEventListener("touchstart", this.touchStart);
         // add touch move listener
-        target.addEventListener("touchmove", this.touchMove, false); 
+        target.addEventListener("touchmove", this.touchMove); 
         // add touch end listener
-        target.addEventListener("touchend", this.touchEnd, false);
+        target.addEventListener("touchend", this.touchEnd);
     },
     touchStart:function(){
         if (!event.changedTouches.length) 
@@ -303,18 +303,6 @@ Touch.prototype={
             //alert('right');
         }
     }
-}
-
-/**functions to be called**/
-
-//register a event listener on the target
-function addEvent(target,type,handler) {
-    if (target.addEventListener)
-        target.addEventListener(type,handler,false);
-    else
-        target.attachEvent("on"+type,function(event){
-            return handler.call(target,event);
-        });
 }
 
  
