@@ -274,11 +274,11 @@ Touch.prototype={
     touchStart:function(){
         if (!event.changedTouches.length) 
            return;
-        //"this" points to spirit target( document)
-        var touch = event.changedTouches[0];
-        this.startX = touch.pageX; //defined in the object window
-        this.startY = touch.pageY;
 
+        var touches = event.changedTouches;
+        for (var i in touches) {
+            createRipple( touches[i].clientX, touches[i].clientY ); 
+        }
           
     },
     touchMove:function () {
