@@ -418,6 +418,7 @@ Touch.prototype={
     },
     touchEnd:function(){
         var nowSec = new Date().getTime();
+        console("-------------")
         console.log("time:" + (nowSec - this.startSec));
         console.log("this.clickTriggered == 0 : " + (this.clickTriggered == 0));
         console.log("event.target == this.startTar : "+(event.target == this.startTar));
