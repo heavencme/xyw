@@ -117,11 +117,13 @@ function createRipple(x, y) {
     var max = 100;
     var i = 0;
     var arrLen = g_ripples.length;
+    var tmpRipple;
 
     
     if ( arrLen > max) {
         for (i = 1; i < arrLen; i += 2 ) {
-            g_ripples.splice(i, 1).remove();
+            tmpRipple = g_ripples.splice(i, 1);
+            tmpRipple.remove();
             arrLen --;
         }
     }
