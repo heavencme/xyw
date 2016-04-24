@@ -391,14 +391,12 @@ Touch.prototype={
     },
     touchStart:function(){
         if (!event.changedTouches.length) {
-            alert(event.target);
             event.target.click();
             return;
         }
 
         var touches = event.changedTouches;
         for (var i in touches) {
-            alert(event.target);
             event.target.click();
             createRipple( touches[i].clientX, touches[i].clientY ); 
         }
