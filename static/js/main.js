@@ -419,7 +419,10 @@ Touch.prototype={
         createRipple(x,y);
 
         //moving not click
-        alert("x: " + Math.abs(x - this.startTar.x)+"-- y: " + Math.abs(y - this.startTar.y));
+        var isMoving = Math.abs(x - this.startTar.x) > 3 || Math.abs(y - this.startTar.y) > 3;
+        if (isMoving) {
+            this.clickTriggered = 1;
+        }
     },
     touchEnd:function(){
         var nowSec = new Date().getTime();
