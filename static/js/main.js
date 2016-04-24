@@ -255,17 +255,17 @@ Date.prototype.Format = function(fmt) {
 } 
 
 //page link
-function regPageLink(target, prependTar){
+function regPageLink(target, appendTar){
     $(target).click(function(){
         var htmlStr = '\
-            <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light centre z-depth-2" style="background:dairy-link-color"> \
+            <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light z-depth-2" style="background:dairy-link-color"> \
                 dairy-index \
             </a>';
 
         htmlStr = htmlStr.replace( /dairy-index/g, $(this).attr("id") ); 
         htmlStr = htmlStr.replace( /dairy-link-color/g, "#ff0000");
 
-        $(prependTar).prepend(htmlStr);
+        $(appendTar).append(htmlStr);
     });
 }
 
