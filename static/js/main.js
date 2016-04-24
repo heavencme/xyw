@@ -202,7 +202,7 @@ function genPage(dairyArr) {
 
     var htmlStr;
     var templateStr = ' \
-        <div class="col dairy-pad" id="dairy-id"> \
+        <div class="col dairy-pad" id="dairy-id" href="#dairy-index"> \
           <div class="card"> \
             <span class="card-title">dairy-time</span> \
             <div class="card-content"> \
