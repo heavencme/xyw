@@ -144,6 +144,7 @@ span.card-title {
 .dairy-num-pad {
   z-index: 10000;
   display: inline-block;
+  padding: 2px;
 }
 
 /* ripple effects */

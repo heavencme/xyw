@@ -445,13 +445,12 @@ Touch.prototype={
         var touch = event.changedTouches[0],
             x = touch.clientX,
             y = touch.clientY;
-        
-        createRipple(x,y);
 
         //moving not click
         var isMoving = Math.abs(x - this.startTar.x) > 3 || Math.abs(y - this.startTar.y) > 3;
         if (isMoving) {
             this.clickTriggered = 1;
+            createRipple(x,y);
         }
 
         return false;
