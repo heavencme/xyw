@@ -271,6 +271,13 @@ function regPageLink(target, appendTar){
                     .find(".grey-text")
                     .attr("style", "");
 
+                console.log('i: '+i);
+                console.log('g_pageLinkIndex: ' + g_pageLinkIndex);
+                console.log('clickTarId: ' + clickTarId);
+                console.log('g_pageLinkArr: ' + g_pageLinkArr);
+
+                console.log('-- regPageLink guard');
+
                 g_pageLinkArr.splice(i,1);
                 flushPageLinkToCookie();
 
@@ -280,12 +287,7 @@ function regPageLink(target, appendTar){
                     g_pageLinkIndex = g_rainbow.length - 1;
                 }
 
-                console.log('i: '+i);
-                console.log('g_pageLinkIndex: ' + g_pageLinkIndex);
-                console.log('clickTarId: ' + clickTarId);
-                console.log('g_pageLinkArr: ' + g_pageLinkArr);
-
-                console.log('-- regPageLink guard');
+                
 
                 return;
             }
