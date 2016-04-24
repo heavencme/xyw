@@ -263,6 +263,8 @@ Date.prototype.Format = function(fmt) {
 function regPageLink(target, appendTar){
     $(target).click(function(){
         var clickTarId = $(this).attr("id");
+        var pageLinkNum = g_rainbow.length;
+
         //guard judge
         for (var i in g_pageLinkArr) {
             if ( g_pageLinkArr[i] == clickTarId ) {
@@ -280,6 +282,19 @@ function regPageLink(target, appendTar){
             }
         }
 
+        //keep balance
+        if (pageLinkNum <= g_pageLinkArr.length) {
+            $("#page-link").children()[0].remove();
+
+            //clear over-weight marked color
+            $( "#" + g_pageLinkArr[0] ).children()
+                .find(".grey-text")
+                .attr("style", "");
+
+            g_pageLinkArr.shift();
+            flushPageLinkToCookie();
+        }
+        
         createOrSetPageLink(clickTarId, appendTar);
     });
 }
@@ -330,19 +345,6 @@ function createOrSetPageLink(clickTarId, appendTar) {
 
     //marked color
     $("#" + clickTarId).children().find(".grey-text").attr("style", "background:" + curColor + ";");
-
-    //keep balance
-    if (pageLinkNum <= g_pageLinkArr.length) {
-        $("#page-link").children()[0].remove();
-
-        //clear over-weight marked color
-        $( "#" + g_pageLinkArr[0] ).children()
-            .find(".grey-text")
-            .attr("style", "");
-
-        g_pageLinkArr.shift();
-        flushPageLinkToCookie();
-    }
     
     g_pageLinkIndex ++;
     g_pageLinkIndex %= pageLinkNum;
