@@ -211,6 +211,7 @@ function genPage(dairyArr) {
             <div class="card-content"> \
               <p> \
                 dairy-msg \
+                <div class="chip right">#dairy-index</div> \
               </p> \
             </div> \
           </div> \
@@ -220,6 +221,7 @@ function genPage(dairyArr) {
         htmlStr = templateStr.replace(/dairy-time/g, dairyArr[i]['time']);
         htmlStr = htmlStr.replace(/dairy-msg/g, dairyArr[i]['msg']);
         htmlStr = htmlStr.replace(/dairy-id/g, dairyArr[i]['_id']); 
+        htmlStr = htmlStr.replace( /dairy-index/g, (i+1) ); 
 
         $("#lh-main").prepend(htmlStr);   
     }
