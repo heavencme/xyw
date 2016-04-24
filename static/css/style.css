@@ -144,13 +144,13 @@ span.card-title {
 .dairy-num-pad {
   z-index: 10000;
   display: inline-block;
-  padding: 2px;
+  padding: 1px;
+  margin-bottom: 2px;
 }
 .page-link-btn {
   width: 28px;
   height: 28px;
   text-align: center;
-  
 }
 
 /* ripple effects */
