@@ -321,6 +321,7 @@ function regPageLink(target, appendTar){
 
 function flushPageLinkToCookie() {
     setCookie('pageLinkArr', g_pageLinkArr.toString(), 180);
+    getPageLinkFromCookie();
 }
 
 function getPageLinkFromCookie(){
@@ -337,7 +338,7 @@ function getPageLinkFromCookie(){
 function genPageLink(appendTar) {
     var pageLinkArrFromCookie = getPageLinkFromCookie();
     if(pageLinkArrFromCookie && pageLinkArrFromCookie.length > 0){
-        g_pageLinkArr = pageLinkArrFromCookie;
+        //g_pageLinkArr = pageLinkArrFromCookie;
         for (var i in g_pageLinkArr) {
             //createOrSetPageLink(g_pageLinkArr[i], appendTar);
         }
