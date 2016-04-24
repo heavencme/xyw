@@ -340,7 +340,7 @@ function genPageLink(appendTar) {
     if(pageLinkArrFromCookie && pageLinkArrFromCookie.length > 0){
         g_pageLinkArr = pageLinkArrFromCookie;
         g_pageLinkIndex = g_pageLinkArr.length;
-        g_pageLinkIndex %= pageLinkNum;
+        g_pageLinkIndex %= g_rainbow.length;
 
         for (var i in g_pageLinkArr) {
             createOrSetPageLink(g_pageLinkArr[i], appendTar);
@@ -371,7 +371,7 @@ function createOrSetPageLink(clickTarId, appendTar) {
     $("#" + clickTarId).children().find(".grey-text").attr("style", "background:" + curColor + ";");
     
     g_pageLinkIndex ++;
-    g_pageLinkIndex %= g_rainbow.length;;
+    g_pageLinkIndex %= pageLinkNum;
 }
 
 //the Touch
