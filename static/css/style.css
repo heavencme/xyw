@@ -156,7 +156,7 @@ span.card-title {
 
 .ripple {
   position: absolute;
-  background: rgba(0,0,0,.15);
+  background: rgba(0,0,0,.08);
   border-radius: 100%;
   transform: scale(0);
   pointer-events: none;
