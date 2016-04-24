@@ -282,6 +282,8 @@ function regPageLink(target, appendTar){
 
         $(appendTar).append(htmlStr);
 
+        g_pageLinkArr.push(clickTarId);
+
         //marked color
         $(this).children().find(".grey-text").attr("style", "color:" + curColor + ";");
 
