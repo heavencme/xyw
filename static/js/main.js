@@ -119,7 +119,7 @@ function createRipple(x, y) {
     
     if (g_ripples.length > max) {
         for (var i in g_ripples) {
-            if (i % 2 != 0) {
+            if (i % 2 != 0 && g_ripples.length > max/2) {
                 g_ripples.splice(i, 1).remove();
             }
         }
