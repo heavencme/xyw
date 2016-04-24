@@ -413,10 +413,9 @@ Touch.prototype={
     },
     touchEnd:function(){
         var nowSec = new Date().getTime();
-        if (nowSec - startSec > 300) {
-            alert(nowSec - startSec);
-            event.target.click();
-        }
+        
+        alert(nowSec - startSec);
+        event.target.click();
         
     }
 }
