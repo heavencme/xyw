@@ -272,6 +272,7 @@ function regPageLink(target, appendTar){
 
                 g_pageLinkArr.splice(i,1);
                 $("#page-link").children()[i].remove();
+                g_pageLinkIndex --;
 
                 return;
             }
