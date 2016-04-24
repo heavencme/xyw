@@ -417,9 +417,6 @@ Touch.prototype={
             return true;
         }
 
-        // prevent click, and trigger that with touchEnd in case of double triggered
-        event.preventDefault();
-
         var touches = event.changedTouches;
 
         this.startSec = new Date().getTime();
@@ -431,9 +428,6 @@ Touch.prototype={
         for (var i in touches) {
             createRipple( touches[i].clientX, touches[i].clientY ); 
         }
-
-        return false;
-          
     },
     touchMove:function () {
         if (!event.changedTouches.length) 
@@ -452,9 +446,6 @@ Touch.prototype={
     },
     touchEnd:function(){
 
-        // prevent click, and trigger that with touchEnd in case of double triggered
-        event.preventDefault();
-
         var nowSec = new Date().getTime();
         //console.log("-------------")
         //console.log("time:" + (nowSec - this.startSec));
@@ -467,9 +458,6 @@ Touch.prototype={
             event.target.click();
             this.clickTriggered ++;
         }
-
-        return true;
-        
     }
 }
 
