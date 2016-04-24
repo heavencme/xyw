@@ -371,7 +371,7 @@ function createOrSetPageLink(clickTarId, appendTar) {
     $("#" + clickTarId).children().find(".grey-text").attr("style", "background:" + curColor + ";");
     
     g_pageLinkIndex ++;
-    g_pageLinkIndex %= pageLinkNum;
+    g_pageLinkIndex %= g_rainbow.length;;
 }
 
 //the Touch
