@@ -68,7 +68,7 @@ function initDairy() {
             //register ripple effects
             
                 container.mousemove(function (e) {
-                    createRipple( (e.pageX || e.left), (e.pageY || e.right) );
+                    createRipple(e.clientXt, e.clientY);
                 });
            
                 var bodyTouch=new Touch($("#home")[0]);
