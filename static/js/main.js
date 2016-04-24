@@ -380,6 +380,7 @@ function Touch(tar) {
     this.startSec = 0;
     this.startTar;
     this.clickTriggered = 0;
+    this.startPoistion = {};
 }
 Touch.prototype={
     constructor:Touch,
@@ -396,12 +397,14 @@ Touch.prototype={
         if (!event.changedTouches.length) {
             return;
         }
+        var touches = event.changedTouches;
 
         this.startSec = new Date().getTime();
         this.startTar = event.target;
         this.clickTriggered = 0;
+        this.startPoistion.x = touches[0].clientX;
+        this.startPoistion.y = touches[0].clientY;
 
-        var touches = event.changedTouches;
         for (var i in touches) {
             createRipple( touches[i].clientX, touches[i].clientY ); 
         }
@@ -414,7 +417,11 @@ Touch.prototype={
             x = touch.clientX,
             y = touch.clientY;
         
-        createRipple(x,y); 
+        createRipple(x,y);
+
+        //moving not click
+        console.log("x: " + Math.abs(x - this.startPoistion.x));
+        console.log("y: " + Math.abs(y - this.startPoistion.y));
     },
     touchEnd:function(){
         var nowSec = new Date().getTime();
