@@ -318,7 +318,7 @@ function regPageLink(target, appendTar){
         $(this).children().find(".dairy-num-pad").attr("style", "background:" + curColor + ";");
 
         //keep balance
-        if (pageLinkNum <= g_pageLinkArr.length) {
+        if (pageLinkNum < g_pageLinkArr.length) {
             $("#page-link").children()[0].remove();
 
             //clear over-weight marked color
