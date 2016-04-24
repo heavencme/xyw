@@ -418,7 +418,7 @@ Touch.prototype={
         var nowSec = new Date().getTime();
         console.log(nowSec - this.startSec);
 
-        if (event.target == this.startTar && nowSec - this.startSec > 84) {
+        if (event.target == this.startTar && nowSec - this.startSec > 5) {
             event.target.click();
         }
         
