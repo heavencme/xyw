@@ -115,13 +115,14 @@ function createRipple(x, y) {
     });
 
     var max = 100;
+    var i = 0;
+    var arrLen = g_ripples.length;
 
     
-    if (g_ripples.length > max) {
-        for (var i in g_ripples) {
-            if (i % 2 != 0 && g_ripples.length > max/2) {
-                g_ripples.splice(i, 1).remove();
-            }
+    if ( arrLen > max) {
+        for (i = 1; i < arrLen; i += 2 ) {
+            g_ripples.splice(i, 1).remove();
+            arrLen --;
         }
     }
 
