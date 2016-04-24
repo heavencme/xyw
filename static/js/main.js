@@ -1,7 +1,7 @@
 (function($){
 /* start */
 
-var container = $('body');
+var container = $('#home');
 
 initDairy();
 var g_ripples = [];
@@ -118,7 +118,6 @@ function createRipple(x, y) {
     var i = 0;
     var arrLen = g_ripples.length;
     var tmpRipple;
-
     
     if ( arrLen > max) {
         for (i = 1; i < arrLen; i += 2 ) {
