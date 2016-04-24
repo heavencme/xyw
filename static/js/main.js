@@ -297,7 +297,7 @@ function regPageLink(target, appendTar){
         var pageLinkNum = g_rainbow.length;
 
         var htmlStr = '\
-            <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light z-depth-2" style="background:dairy-link-color"> \
+            <a href="#dairy-index" class="page-link-btn btn-floating btn-small waves-effect waves-light z-depth-2" style="background:dairy-link-color"> \
                 dairy-index \
             </a>';
 
@@ -376,7 +376,7 @@ function initPageLink(clickTarId, appendTar) {
     var pageLinkNum = g_rainbow.length;
 
     var htmlStr = '\
-        <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light z-depth-2" style="background:dairy-link-color"> \
+        <a href="#dairy-index" class="page-link-btn btn-floating btn-small waves-effect waves-light z-depth-2" style="background:dairy-link-color"> \
             dairy-index \
         </a>';
 

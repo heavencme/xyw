@@ -146,6 +146,12 @@ span.card-title {
   display: inline-block;
   padding: 2px;
 }
+.page-link-btn {
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  
+}
 
 /* ripple effects */
 
