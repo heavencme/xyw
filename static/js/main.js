@@ -73,7 +73,8 @@ function initDairy() {
             var bodyTouch=new Touch($("#home")[0]);
             bodyTouch.setTouchEvent();
 
-            //register page link
+            //init pagelink and register for page link add
+            genPageLink("#page-link");
             regPageLink(".dairy-pad", "#page-link");
         },
         error: function(e){
@@ -263,55 +264,84 @@ function regPageLink(target, appendTar){
     $(target).click(function(){
         var clickTarId = $(this).attr("id");
 
-        //guard judge
+        createOrSetPageLink(clickTarId, appendTar);
+    });
+}
+
+function flushPageLinkToCookie() {
+    setCookie('pageLinkArr', g_pageLinkArr.toString(), 180);
+}
+
+function getPageLinkFromCookie(){
+    var cookieStr = getCookie('pageLinkArr');
+    if (cookieStr) {
+        return cookieStr.split(',');
+    } else {
+        return null;
+    }
+    
+}
+
+function genPageLink(appendTar) {
+    var pageLinkArrFromCookie = getPageLinkFromCookie();
+    if(pageLinkArrFromCookie.length > 0){
+        g_pageLinkArr = pageLinkArrFromCookie;
         for (var i in g_pageLinkArr) {
-            if ( g_pageLinkArr[i] == clickTarId ) {
-                $( "#" + g_pageLinkArr[i] ).children()
-                    .find(".grey-text")
-                    .attr("style", "");
-
-                g_pageLinkArr.splice(i,1);
-                $("#page-link").children()[i].remove();
-                g_pageLinkIndex --;
-
-                return;
-            }
+            createOrSetPageLink(g_pageLinkArr[i], appendTar);
         }
-
-        var pageLinkNum = g_rainbow.length;
-
-        var htmlStr = '\
-            <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light z-depth-2" style="background:dairy-link-color"> \
-                dairy-index \
-            </a>';
-
-        var curColor = g_rainbow[g_pageLinkIndex];    
         
-        htmlStr = htmlStr.replace( /dairy-index/g, clickTarId); 
-        htmlStr = htmlStr.replace( /dairy-link-color/g, curColor);
+    }
+}
 
-        $(appendTar).append(htmlStr);
-
-        g_pageLinkArr.push(clickTarId);
-
-        //marked color
-        $(this).children().find(".grey-text").attr("style", "background:" + curColor + ";");
-
-        //keep balance
-        if (pageLinkNum <= g_pageLinkArr.length) {
-            $("#page-link").children()[0].remove();
-
-            //clear over-weight marked color
-            $( "#" + g_pageLinkArr[0] ).children()
+function createOrSetPageLink(clickTarId, appendTar) {
+    //guard judge
+    for (var i in g_pageLinkArr) {
+        if ( g_pageLinkArr[i] == clickTarId ) {
+            $( "#" + g_pageLinkArr[i] ).children()
                 .find(".grey-text")
                 .attr("style", "");
 
-            g_pageLinkArr.shift();
+            g_pageLinkArr.splice(i,1);
+            $("#page-link").children()[i].remove();
+            g_pageLinkIndex --;
+
+            return;
         }
-        
-        g_pageLinkIndex ++;
-        g_pageLinkIndex %= pageLinkNum;
-    });
+    }
+
+    var pageLinkNum = g_rainbow.length;
+
+    var htmlStr = '\
+        <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light z-depth-2" style="background:dairy-link-color"> \
+            dairy-index \
+        </a>';
+
+    var curColor = g_rainbow[g_pageLinkIndex];    
+    
+    htmlStr = htmlStr.replace( /dairy-index/g, clickTarId); 
+    htmlStr = htmlStr.replace( /dairy-link-color/g, curColor);
+
+    $(appendTar).append(htmlStr);
+
+    g_pageLinkArr.push(clickTarId);
+
+    //marked color
+    $("#" + clickTarId).children().find(".grey-text").attr("style", "background:" + curColor + ";");
+
+    //keep balance
+    if (pageLinkNum <= g_pageLinkArr.length) {
+        $("#page-link").children()[0].remove();
+
+        //clear over-weight marked color
+        $( "#" + g_pageLinkArr[0] ).children()
+            .find(".grey-text")
+            .attr("style", "");
+
+        g_pageLinkArr.shift();
+    }
+    
+    g_pageLinkIndex ++;
+    g_pageLinkIndex %= pageLinkNum;
 }
 
 //the Touch
