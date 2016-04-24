@@ -416,7 +416,7 @@ Touch.prototype={
     },
     touchEnd:function(){
         var nowSec = new Date().getTime();
-        if (event.target == this.startTar && nowSec - this.startSec > 200) {
+        if (event.target == this.startTar && nowSec - this.startSec > 84) {
             event.target.click();
         }
         
