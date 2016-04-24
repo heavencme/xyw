@@ -264,6 +264,7 @@ function regPageLink(target, appendTar){
     $(target).click(function(){
         var clickTarId = $(this).attr("id");
 
+        console.log('regPageLink: '+ clickTarId);
         //guard judge
         for (var i in g_pageLinkArr) {
             if ( g_pageLinkArr[i] == clickTarId ) {
@@ -461,7 +462,7 @@ Touch.prototype={
         event.preventDefault();
 
         var nowSec = new Date().getTime();
-        console.log("-------------")
+        //console.log("-------------")
         //console.log("time:" + (nowSec - this.startSec));
         //console.log("this.clickTriggered == 0 : " + (this.clickTriggered == 0));
         //console.log("event.target == this.startTar : "+(event.target == this.startTar));
