@@ -114,7 +114,7 @@ function createRipple(x, y) {
         top: y - 25
     });
 
-    var max = 5;
+    var max = 2;
     var i = 0;
     var arrLen = g_ripples.length;
     var tmpRipple;
