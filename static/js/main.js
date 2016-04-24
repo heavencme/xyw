@@ -413,8 +413,12 @@ Touch.prototype={
     },
     touchStart:function(){
         if (!event.changedTouches.length) {
-            return;
+            return true;
         }
+
+        // prevent click, and trigger that with touchEnd in case of double triggered
+        event.preventDefault();
+
         var touches = event.changedTouches;
 
         this.startSec = new Date().getTime();
@@ -426,11 +430,17 @@ Touch.prototype={
         for (var i in touches) {
             createRipple( touches[i].clientX, touches[i].clientY ); 
         }
+
+        return false;
           
     },
     touchMove:function () {
         if (!event.changedTouches.length) 
           return;
+
+        // prevent click, and trigger that with touchEnd in case of double triggered
+        event.preventDefault();
+
         var touch = event.changedTouches[0],
             x = touch.clientX,
             y = touch.clientY;
@@ -442,8 +452,14 @@ Touch.prototype={
         if (isMoving) {
             this.clickTriggered = 1;
         }
+
+        return false;
     },
     touchEnd:function(){
+
+        // prevent click, and trigger that with touchEnd in case of double triggered
+        event.preventDefault();
+
         var nowSec = new Date().getTime();
         console.log("-------------")
         //console.log("time:" + (nowSec - this.startSec));
@@ -455,6 +471,8 @@ Touch.prototype={
             event.target.click();
             this.clickTriggered ++;
         }
+        
+        return false;
         
     }
 }
