@@ -308,6 +308,7 @@ function regPageLink(target, appendTar){
         $(appendTar).append(htmlStr);
 
         g_pageLinkArr.push(clickTarId);
+        console.log('fine: push' + g_pageLinkArr);
         flushPageLinkToCookie();
 
         console.log('-- regPageLink fine');
