@@ -4,7 +4,8 @@
 var container = $('#home');
 var g_ripples = [];
 var g_rainbow = ["#F00", "#F60", "#FF0", "#0C0", "#699", "#06C", "#909"];
-var g_pageLinkIndex = 0;
+var g_pageLinkArr = [];
+var g_pageLinkIndex = g_pageLinkArr.length;
 
 initDairy();
 
@@ -260,19 +261,38 @@ Date.prototype.Format = function(fmt) {
 //page link
 function regPageLink(target, appendTar){
     $(target).click(function(){
+        var clickTarId = $(this).attr("id");
+        var pageLinkNum = g_rainbow.length;
+
         var htmlStr = '\
             <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light z-depth-2" style="background:dairy-link-color"> \
                 dairy-index \
             </a>';
 
         var curColor = g_rainbow[g_pageLinkIndex];    
-        g_pageLinkIndex ++;
-        g_pageLinkIndex %= g_rainbow.length;
-
-        htmlStr = htmlStr.replace( /dairy-index/g, $(this).attr("id") ); 
+        
+        htmlStr = htmlStr.replace( /dairy-index/g, clickTarId); 
         htmlStr = htmlStr.replace( /dairy-link-color/g, curColor);
 
         $(appendTar).append(htmlStr);
+
+        //marked color
+        $(this).children().find(".grey-text").attr("style", "color:" + curColor + ";");
+
+        //keep balance
+        if (pageLinkNum <= g_pageLinkIndex + 1) {
+            $("#page-link").children()[0].remove();
+
+            //clear over-weight marked color
+            $( "#" + g_pageLinkArr[0] ).children()
+                .find(".grey-text")
+                .attr("style", "");
+
+            g_pageLinkArr.shift();
+        }
+        
+        g_pageLinkIndex ++;
+        g_pageLinkIndex %= pageLinkNum;
     });
 }
 
