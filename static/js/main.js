@@ -71,11 +71,8 @@ function initDairy() {
                     createRipple( (e.pageX || e.left), (e.pageY || e.right) );
                 });
            
-                var bodyTouch=new Touch();
+                var bodyTouch=new Touch($("#home")[0]);
                 bodyTouch.setTouchEvent();
-           
-                
-            
         },
         error: function(e){
             alert('呃……服务器被我关了');
@@ -262,13 +259,13 @@ Date.prototype.Format = function(fmt) {
 
 
 //the Touch
-function Touch() {
-    
+function Touch(tar) {
+    this.tar = tar;
 }
 Touch.prototype={
     constructor:Touch,
     setTouchEvent:function() {
-        var target=document;
+        var target=this.tar;
         // add touch start listener
         target.addEventListener("touchstart", this.touchStart);
         // add touch move listener
