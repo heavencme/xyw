@@ -124,6 +124,11 @@ span.card-title {
   font-size: 2em;
 }
 
+#page-link {
+  margin-top: 28px;
+  position: absolute
+}
+
 #lh-nav-btn-bug {
   margin-top: 28px;
   margin-right: 10px;
