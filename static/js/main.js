@@ -343,12 +343,12 @@ function regPageLink(target, appendTar){
 }
 
 function flushPageLinkToCookie() {
-    setCookie('pageLinkArr', g_pageLinkArr.toString(), 180);
+    setCookie('xywPageLinkArr', g_pageLinkArr.toString(), 180);
     getPageLinkFromCookie();
 }
 
 function getPageLinkFromCookie(){
-    var cookieStr = getCookie('pageLinkArr');
+    var cookieStr = getCookie('xywPageLinkArr');
     if (cookieStr) {
         //console.log(cookieStr.split(','));
         return cookieStr.split(',');
