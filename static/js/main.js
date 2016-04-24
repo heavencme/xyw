@@ -264,7 +264,7 @@ function regPageLink(target, appendTar){
     $(target).click(function(){
         var clickTarId = $(this).attr("id");
 
-        console.log('regPageLink: '+ clickTarId);
+        //console.log('regPageLink: '+ clickTarId);
         //guard judge
         for (var i in g_pageLinkArr) {
             if ( g_pageLinkArr[i] == clickTarId ) {
@@ -272,12 +272,12 @@ function regPageLink(target, appendTar){
                     .find(".grey-text")
                     .attr("style", "");
 
-                console.log('i: '+i);
-                console.log('g_pageLinkIndex: ' + g_pageLinkIndex);
-                console.log('clickTarId: ' + clickTarId);
-                console.log('g_pageLinkArr: ' + g_pageLinkArr);
+                //console.log('i: '+i);
+                //console.log('g_pageLinkIndex: ' + g_pageLinkIndex);
+                //console.log('clickTarId: ' + clickTarId);
+                //console.log('g_pageLinkArr: ' + g_pageLinkArr);
 
-                console.log('-- regPageLink guard');
+                //console.log('-- regPageLink guard');
 
                 g_pageLinkArr.splice(i,1);
                 flushPageLinkToCookie();
@@ -309,10 +309,10 @@ function regPageLink(target, appendTar){
         $(appendTar).append(htmlStr);
 
         g_pageLinkArr.push(clickTarId);
-        console.log('fine: push' + g_pageLinkArr);
+        //console.log('fine: push' + g_pageLinkArr);
         flushPageLinkToCookie();
 
-        console.log('-- regPageLink fine');
+        //console.log('-- regPageLink fine');
 
         //marked color
         $(this).children().find(".grey-text").attr("style", "background:" + curColor + ";");
@@ -329,12 +329,12 @@ function regPageLink(target, appendTar){
             g_pageLinkArr.shift();
             flushPageLinkToCookie();
 
-            console.log('i: '+i);
-            console.log('g_pageLinkIndex: ' + g_pageLinkIndex);
-            console.log('clickTarId: ' + clickTarId);
-            console.log('g_pageLinkArr: ' + g_pageLinkArr);
+            //console.log('i: '+i);
+            //console.log('g_pageLinkIndex: ' + g_pageLinkIndex);
+            //console.log('clickTarId: ' + clickTarId);
+            //console.log('g_pageLinkArr: ' + g_pageLinkArr);
 
-            console.log('-- regPageLink balance');
+            //console.log('-- regPageLink balance');
         }
         
         g_pageLinkIndex ++;
@@ -350,7 +350,7 @@ function flushPageLinkToCookie() {
 function getPageLinkFromCookie(){
     var cookieStr = getCookie('pageLinkArr');
     if (cookieStr) {
-        console.log(cookieStr.split(','));
+        //console.log(cookieStr.split(','));
         return cookieStr.split(',');
     } else {
         return null;
@@ -468,8 +468,8 @@ Touch.prototype={
         //console.log("event.target == this.startTar : "+(event.target == this.startTar));
 
         if (this.clickTriggered == 0 && event.target == this.startTar && ( (nowSec - this.startSec) > 3 ) ) {
-            console.log("trigger!!!");
-            console.log(event.target);
+            //console.log("trigger!!!");
+            //console.log(event.target);
             event.target.click();
             this.clickTriggered ++;
         }
