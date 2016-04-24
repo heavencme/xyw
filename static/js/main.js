@@ -378,6 +378,7 @@ function initPageLink(clickTarId, appendTar) {
 function Touch(tar) {
     this.tar = tar;
     this.startSec = 0;
+    this.startTar;
 }
 Touch.prototype={
     constructor:Touch,
@@ -395,9 +396,11 @@ Touch.prototype={
             return;
         }
 
+        this.startSec = new Date().getTime();
+        this.startTar = event.target;
+
         var touches = event.changedTouches;
         for (var i in touches) {
-            this.startSec = new Date().getTime();
             createRipple( touches[i].clientX, touches[i].clientY ); 
         }
           
@@ -413,7 +416,7 @@ Touch.prototype={
     },
     touchEnd:function(){
         var nowSec = new Date().getTime();
-        if (nowSec - this.startSec > 30) {
+        if (event.target == this.startTar) {
             event.target.click();
         }
         
