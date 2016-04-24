@@ -384,11 +384,11 @@ Touch.prototype={
     setTouchEvent:function() {
         var target=this.tar;
         // add touch start listener
-        target.addEventListener("touchstart", this.touchStart, false);
+        target.addEventListener("touchstart", this.touchStart, true);
         // add touch move listener
-        target.addEventListener("touchmove", this.touchMove, false); 
+        target.addEventListener("touchmove", this.touchMove, true); 
         // add touch end listener
-        target.addEventListener("touchend", this.touchEnd, false);
+        target.addEventListener("touchend", this.touchEnd, true);
     },
     touchStart:function(){
         if (!event.changedTouches.length) {
