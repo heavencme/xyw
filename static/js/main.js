@@ -449,8 +449,6 @@ Touch.prototype={
             this.clickTriggered = 1;
             createRipple(x,y);
         }
-
-        return false;
     },
     touchEnd:function(){
 
