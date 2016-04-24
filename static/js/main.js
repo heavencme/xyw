@@ -379,6 +379,7 @@ function Touch(tar) {
     this.tar = tar;
     this.startSec = 0;
     this.startTar;
+    this.clickTriggered = 0;
 }
 Touch.prototype={
     constructor:Touch,
@@ -398,6 +399,7 @@ Touch.prototype={
 
         this.startSec = new Date().getTime();
         this.startTar = event.target;
+        this.clickTriggered = 0;
 
         var touches = event.changedTouches;
         for (var i in touches) {
@@ -418,7 +420,7 @@ Touch.prototype={
         var nowSec = new Date().getTime();
         console.log(nowSec - this.startSec);
 
-        if (event.target == this.startTar && nowSec - this.startSec > 5) {
+        if (clickTriggered == 0 && event.target == this.startTar && nowSec - this.startSec > 5) {
             event.target.click();
         }
         
