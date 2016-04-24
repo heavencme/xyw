@@ -216,7 +216,7 @@ function genPage(dairyArr) {
             <div class="card-content"> \
               <p> \
                 dairy-msg \
-                <i class="dairy-id-it right">#dairy-index</i> \
+                <i class="dairy-num-pad right">#dairy-index</i> \
               </p> \
             </div> \
           </div> \
@@ -269,7 +269,7 @@ function regPageLink(target, appendTar){
         for (var i in g_pageLinkArr) {
             if ( g_pageLinkArr[i] == clickTarId ) {
                 $( "#" + g_pageLinkArr[i] ).children()
-                    .find(".dairy-id-it")
+                    .find(".dairy-num-pad")
                     .attr("style", "");
 
                 //console.log('i: '+i);
@@ -315,7 +315,7 @@ function regPageLink(target, appendTar){
         //console.log('-- regPageLink fine');
 
         //marked color
-        $(this).children().find(".dairy-id-it").attr("style", "background:" + curColor + ";");
+        $(this).children().find(".dairy-num-pad").attr("style", "background:" + curColor + ";");
 
         //keep balance
         if (pageLinkNum <= g_pageLinkArr.length) {
@@ -323,7 +323,7 @@ function regPageLink(target, appendTar){
 
             //clear over-weight marked color
             $( "#" + g_pageLinkArr[0] ).children()
-                .find(".dairy-id-it")
+                .find(".dairy-num-pad")
                 .attr("style", "");
 
             g_pageLinkArr.shift();
@@ -388,7 +388,7 @@ function initPageLink(clickTarId, appendTar) {
     $(appendTar).append(htmlStr);
 
     //marked color
-    $("#" + clickTarId).children().find(".dairy-id-it").attr("style", "background:" + curColor + ";");
+    $("#" + clickTarId).children().find(".dairy-num-pad").attr("style", "background:" + curColor + ";");
     
     g_pageLinkIndex ++;
     g_pageLinkIndex %= pageLinkNum;
