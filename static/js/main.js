@@ -68,6 +68,9 @@ function initDairy() {
             //register ripple effects
             var bodyTouch=new Touch($("#home")[0]);
             bodyTouch.setTouchEvent();
+
+            //register page link
+            regPageLink(".dairy-pad", "#lh-logo");
         },
         error: function(e){
             alert('呃……服务器被我关了');
@@ -252,7 +255,7 @@ Date.prototype.Format = function(fmt) {
 } 
 
 //page link
-function regPageLink(target){
+function regPageLink(target, appendTar){
     $(target).click(function(){
         var htmlStr = '\
             <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light center z-depth-2" style="background:dairy-link-color"> \
@@ -261,6 +264,8 @@ function regPageLink(target){
 
         htmlStr = htmlStr.replace( /dairy-index/g, $(this).attr("id") ); 
         htmlStr = htmlStr.replace( /dairy-link-color/g, "#ff0000");
+
+        $(insertAfterTar).insertAfter(htmlStr);
     });
 }
 
