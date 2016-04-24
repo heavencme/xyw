@@ -73,8 +73,7 @@ function initDairy() {
             var bodyTouch=new Touch($("#home")[0]);
             bodyTouch.setTouchEvent();
 
-            //init pagelink and register for page link add
-            genPageLink("#page-link");
+            //register page link
             regPageLink(".dairy-pad", "#page-link");
         },
         error: function(e){
@@ -263,6 +262,7 @@ Date.prototype.Format = function(fmt) {
 function regPageLink(target, appendTar){
     $(target).click(function(){
         var clickTarId = $(this).attr("id");
+
         //guard judge
         for (var i in g_pageLinkArr) {
             if ( g_pageLinkArr[i] == clickTarId ) {
@@ -312,57 +312,6 @@ function regPageLink(target, appendTar){
         g_pageLinkIndex ++;
         g_pageLinkIndex %= pageLinkNum;
     });
-}
-
-function flushPageLinkToCookie() {
-    setCookie('pageLinkArr', g_pageLinkArr.toString(), 180);
-}
-
-function getPageLinkFromCookie(){
-    var cookieStr = getCookie('pageLinkArr');
-    if (cookieStr) {
-        console.log(cookieStr.split(','));
-        return cookieStr.split(',');
-    } else {
-        return null;
-    }
-    
-}
-
-function genPageLink(appendTar) {
-    var pageLinkArrFromCookie = getPageLinkFromCookie();
-    if(pageLinkArrFromCookie && pageLinkArrFromCookie.length > 0){
-        g_pageLinkArr = pageLinkArrFromCookie;
-        for (var i in g_pageLinkArr) {
-            //createOrSetPageLink(g_pageLinkArr[i], appendTar);
-        }
-        
-    }
-}
-
-function createOrSetPageLink(clickTarId, appendTar) {
-    var pageLinkNum = g_rainbow.length;
-
-    var htmlStr = '\
-        <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light z-depth-2" style="background:dairy-link-color"> \
-            dairy-index \
-        </a>';
-
-    var curColor = g_rainbow[g_pageLinkIndex];    
-    
-    htmlStr = htmlStr.replace( /dairy-index/g, clickTarId); 
-    htmlStr = htmlStr.replace( /dairy-link-color/g, curColor);
-
-    $(appendTar).append(htmlStr);
-
-    g_pageLinkArr.push(clickTarId);
-    flushPageLinkToCookie();
-
-    //marked color
-    $("#" + clickTarId).children().find(".grey-text").attr("style", "background:" + curColor + ";");
-    
-    g_pageLinkIndex ++;
-    g_pageLinkIndex %= pageLinkNum;
 }
 
 //the Touch
