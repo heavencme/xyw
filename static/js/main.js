@@ -280,7 +280,12 @@ function regPageLink(target, appendTar){
                     g_pageLinkIndex = g_rainbow.length - 1;
                 }
 
-                console.log('regPageLink guard');
+                console.log('i: '+i);
+                console.log('g_pageLinkIndex: ' + g_pageLinkIndex);
+                console.log('clickTarId: ' + clickTarId);
+                console.log('g_pageLinkArr: ' + g_pageLinkArr);
+
+                console.log('-- regPageLink guard');
 
                 return;
             }
@@ -303,6 +308,8 @@ function regPageLink(target, appendTar){
         g_pageLinkArr.push(clickTarId);
         flushPageLinkToCookie();
 
+        console.log('-- regPageLink fine');
+
         //marked color
         $(this).children().find(".grey-text").attr("style", "background:" + curColor + ";");
 
@@ -317,6 +324,13 @@ function regPageLink(target, appendTar){
 
             g_pageLinkArr.shift();
             flushPageLinkToCookie();
+
+            console.log('i: '+i);
+            console.log('g_pageLinkIndex: ' + g_pageLinkIndex);
+            console.log('clickTarId: ' + clickTarId);
+            console.log('g_pageLinkArr: ' + g_pageLinkArr);
+
+            console.log('-- regPageLink balance');
         }
         
         g_pageLinkIndex ++;
