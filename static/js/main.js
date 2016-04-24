@@ -423,6 +423,7 @@ Touch.prototype={
         console.log("event.target == this.startTar : "+(event.target == this.startTar));
 
         if (this.clickTriggered == 0 && event.target == this.startTar && ( (nowSec - this.startSec) > 3 ) ) {
+            console.log("trigger!!!");
             event.target.click();
             this.clickTriggered ++;
         }
