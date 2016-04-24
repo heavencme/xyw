@@ -395,9 +395,10 @@ Touch.prototype={
             return;
         }
 
+        this.startSec = new Date().getTime();
+
         var touches = event.changedTouches;
         for (var i in touches) {
-            this.startSec = new Date().getTime();
             createRipple( touches[i].clientX, touches[i].clientY ); 
         }
           
@@ -409,12 +410,14 @@ Touch.prototype={
             x = touch.clientX,
             y = touch.clientY;
 
-        event.target.click();
+        var nowSec = new Date().getTime();
+        if(nowSec - startSec < 300)
+            event.target.click();
         
         createRipple(x,y); 
     },
     touchEnd:function(){
-        event.target.click();
+        //event.target.click();
     }
 }
 
