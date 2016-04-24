@@ -471,8 +471,8 @@ Touch.prototype={
             event.target.click();
             this.clickTriggered ++;
         }
-        
-        return false;
+
+        return true;
         
     }
 }
