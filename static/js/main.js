@@ -338,12 +338,40 @@ function getPageLinkFromCookie(){
 function genPageLink(appendTar) {
     var pageLinkArrFromCookie = getPageLinkFromCookie();
     if(pageLinkArrFromCookie && pageLinkArrFromCookie.length > 0){
-        //g_pageLinkArr = pageLinkArrFromCookie;
+        g_pageLinkArr = pageLinkArrFromCookie;
+        g_pageLinkIndex = g_pageLinkArr.length;
+        g_pageLinkIndex %= pageLinkNum;
+
         for (var i in g_pageLinkArr) {
-            //createOrSetPageLink(g_pageLinkArr[i], appendTar);
+            createOrSetPageLink(g_pageLinkArr[i], appendTar);
         }
         
     }
+}
+
+function createOrSetPageLink(clickTarId, appendTar) {
+    var pageLinkNum = g_rainbow.length;
+
+    var htmlStr = '\
+        <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light z-depth-2" style="background:dairy-link-color"> \
+            dairy-index \
+        </a>';
+
+    var curColor = g_rainbow[g_pageLinkIndex];    
+    
+    htmlStr = htmlStr.replace( /dairy-index/g, clickTarId); 
+    htmlStr = htmlStr.replace( /dairy-link-color/g, curColor);
+
+    $(appendTar).append(htmlStr);
+
+    g_pageLinkArr.push(clickTarId);
+    flushPageLinkToCookie();
+
+    //marked color
+    $("#" + clickTarId).children().find(".grey-text").attr("style", "background:" + curColor + ";");
+    
+    g_pageLinkIndex ++;
+    g_pageLinkIndex %= pageLinkNum;
 }
 
 //the Touch
