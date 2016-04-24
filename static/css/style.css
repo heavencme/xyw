@@ -141,6 +141,10 @@ span.card-title {
 #modal-bug {
   color: #000;
 }
+.dairy-id-it {
+  z-index: 10000;
+  display: inline-block;
+}
 
 /* ripple effects */
 
