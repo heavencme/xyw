@@ -275,7 +275,7 @@ function flushPageLinkToCookie() {
 function getPageLinkFromCookie(){
     var cookieStr = getCookie('pageLinkArr');
     if (cookieStr) {
-        sonsole.log(cookieStr.split(','));
+        console.log(cookieStr.split(','));
         return cookieStr.split(',');
     } else {
         return null;
