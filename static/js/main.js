@@ -408,6 +408,10 @@ Touch.prototype={
         var touch = event.changedTouches[0],
             x = touch.clientX,
             y = touch.clientY;
+
+            var nowSec = new Date().getTime();
+        
+        alert(nowSec - startSec);
         
         createRipple(x,y); 
     },
