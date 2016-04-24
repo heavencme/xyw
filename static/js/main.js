@@ -275,6 +275,7 @@ function flushPageLinkToCookie() {
 function getPageLinkFromCookie(){
     var cookieStr = getCookie('pageLinkArr');
     if (cookieStr) {
+        sonsole.log(cookieStr.split(','));
         return cookieStr.split(',');
     } else {
         return null;
@@ -302,6 +303,8 @@ function createOrSetPageLink(clickTarId, appendTar) {
                 .attr("style", "");
 
             g_pageLinkArr.splice(i,1);
+            flushPageLinkToCookie();
+
             $("#page-link").children()[i].remove();
             g_pageLinkIndex --;
 
@@ -324,6 +327,7 @@ function createOrSetPageLink(clickTarId, appendTar) {
     $(appendTar).append(htmlStr);
 
     g_pageLinkArr.push(clickTarId);
+    flushPageLinkToCookie();
 
     //marked color
     $("#" + clickTarId).children().find(".grey-text").attr("style", "background:" + curColor + ";");
@@ -338,6 +342,7 @@ function createOrSetPageLink(clickTarId, appendTar) {
             .attr("style", "");
 
         g_pageLinkArr.shift();
+        flushPageLinkToCookie();
     }
     
     g_pageLinkIndex ++;
