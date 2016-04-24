@@ -124,7 +124,7 @@ function createRipple(x, y) {
         for (i = 1; i < arrLen; i += 2 ) {
             tmpRipple = g_ripples.splice(i, 1);
             if(tmpRipple.remove) {
-                tmpRipple.remove();
+                //tmpRipple.remove();
             } else {
                 console.log(i + tmpRipple.toString());
             }
