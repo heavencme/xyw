@@ -265,7 +265,7 @@ function regPageLink(target, insertAfterTar){
         htmlStr = htmlStr.replace( /dairy-index/g, $(this).attr("id") ); 
         htmlStr = htmlStr.replace( /dairy-link-color/g, "#ff0000");
 
-        $(insertAfterTar).insertAfter(htmlStr);
+        $(htmlStr).insertAfter(insertAfterTar);
     });
 }
 
