@@ -276,6 +276,9 @@ function regPageLink(target, appendTar){
 
                 $("#page-link").children()[i].remove();
                 g_pageLinkIndex --;
+                if( g_pageLinkIndex < 0){
+                    g_pageLinkIndex = g_rainbow.length - 1;
+                }
 
                 return;
             }
