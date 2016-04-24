@@ -343,13 +343,13 @@ function genPageLink(appendTar) {
         g_pageLinkIndex %= g_rainbow.length;
 
         for (var i in g_pageLinkArr) {
-            createOrSetPageLink(g_pageLinkArr[i], appendTar);
+            initPageLink(g_pageLinkArr[i], appendTar);
         }
         
     }
 }
 
-function createOrSetPageLink(clickTarId, appendTar) {
+function initPageLink(clickTarId, appendTar) {
     var pageLinkNum = g_rainbow.length;
 
     var htmlStr = '\
@@ -363,9 +363,6 @@ function createOrSetPageLink(clickTarId, appendTar) {
     htmlStr = htmlStr.replace( /dairy-link-color/g, curColor);
 
     $(appendTar).append(htmlStr);
-
-    g_pageLinkArr.push(clickTarId);
-    flushPageLinkToCookie();
 
     //marked color
     $("#" + clickTarId).children().find(".grey-text").attr("style", "background:" + curColor + ";");
