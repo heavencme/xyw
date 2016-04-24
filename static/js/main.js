@@ -211,7 +211,7 @@ function genPage(dairyArr) {
             <div class="card-content"> \
               <p> \
                 dairy-msg \
-                <div class="chip right">#dairy-index</div> \
+                <span class="chip right">#dairy-index</span> \
               </p> \
             </div> \
           </div> \
