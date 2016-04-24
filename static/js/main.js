@@ -380,7 +380,7 @@ function Touch(tar) {
     this.startSec = 0;
     this.startTar;
     this.clickTriggered = 0;
-    this.startPoistion = {};
+    this.startPos= new Object();
 }
 Touch.prototype={
     constructor:Touch,
@@ -402,8 +402,8 @@ Touch.prototype={
         this.startSec = new Date().getTime();
         this.startTar = event.target;
         this.clickTriggered = 0;
-        this.startPoistion.x = touches[0].clientX;
-        this.startPoistion.y = touches[0].clientY;
+        this.startPos.x = touches[0].clientX;
+        this.startPos.y = touches[0].clientY;
 
         for (var i in touches) {
             createRipple( touches[i].clientX, touches[i].clientY ); 
@@ -420,8 +420,8 @@ Touch.prototype={
         createRipple(x,y);
 
         //moving not click
-        console.log("x: " + Math.abs(x - this.startPoistion.x));
-        console.log("y: " + Math.abs(y - this.startPoistion.y));
+        console.log("x: " + Math.abs(x - this.startPos.x));
+        console.log("y: " + Math.abs(y - this.startPos.y));
     },
     touchEnd:function(){
         var nowSec = new Date().getTime();
