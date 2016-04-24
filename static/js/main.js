@@ -75,7 +75,7 @@ function initDairy() {
 
             //register page link
             regPageLink(".dairy-pad", "#page-link");
-            genPageLink();
+            genPageLink("#page-link");
         },
         error: function(e){
             alert('呃……服务器被我关了');
