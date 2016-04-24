@@ -68,7 +68,7 @@ function initDairy() {
             //register ripple effects
             
                 container.mousemove(function (e) {
-                    createRipple(e.clientXt, e.clientY);
+                    createRipple(e.clientX, e.clientY);
                 });
            
                 var bodyTouch=new Touch($("#home")[0]);
