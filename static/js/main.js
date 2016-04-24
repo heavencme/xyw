@@ -255,7 +255,7 @@ Date.prototype.Format = function(fmt) {
 } 
 
 //page link
-function regPageLink(target, appendTar){
+function regPageLink(target, insertAfterTar){
     $(target).click(function(){
         var htmlStr = '\
             <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light center z-depth-2" style="background:dairy-link-color"> \
