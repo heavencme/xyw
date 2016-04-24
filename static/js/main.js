@@ -390,12 +390,17 @@ Touch.prototype={
         target.addEventListener("touchend", this.touchEnd);
     },
     touchStart:function(){
-        if (!event.changedTouches.length) 
-           return;
+        if (!event.changedTouches.length) {
+            event.target.click();
+            alert(event.target.click());
+            return;
+        }
 
         var touches = event.changedTouches;
         for (var i in touches) {
             createRipple( touches[i].clientX, touches[i].clientY ); 
+            event.target.click();
+            alert(event.target.click());
         }
           
     },
