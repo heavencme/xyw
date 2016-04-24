@@ -2,9 +2,12 @@
 /* start */
 
 var container = $('#home');
+var g_ripples = [];
+var g_rainbow = ["#F00", "#F60", "#FF0", "#0C0", "#699", "#06C", "#909"];
+var g_pageLinkIndex = 0;
 
 initDairy();
-var g_ripples = [];
+
 
 /* modal options */
 $('.modal-trigger').leanModal({
@@ -262,8 +265,12 @@ function regPageLink(target, appendTar){
                 dairy-index \
             </a>';
 
+        var curColor = g_rainbow[g_pageLinkIndex];    
+        g_pageLinkIndex ++;
+        g_pageLinkIndex %= g_rainbow.length;
+
         htmlStr = htmlStr.replace( /dairy-index/g, $(this).attr("id") ); 
-        htmlStr = htmlStr.replace( /dairy-link-color/g, "#ff0000");
+        htmlStr = htmlStr.replace( /dairy-link-color/g, curColor);
 
         $(appendTar).append(htmlStr);
     });
