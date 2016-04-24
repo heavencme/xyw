@@ -282,7 +282,7 @@ function regPageLink(target, appendTar){
             }
         }
 
-        //keep balance
+        //keep balance and guard
         if (pageLinkNum <= g_pageLinkArr.length) {
             $("#page-link").children()[0].remove();
 
@@ -293,8 +293,10 @@ function regPageLink(target, appendTar){
 
             g_pageLinkArr.shift();
             flushPageLinkToCookie();
+
+            return;
         }
-        
+
         createOrSetPageLink(clickTarId, appendTar);
     });
 }
