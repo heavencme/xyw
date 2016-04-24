@@ -262,6 +262,12 @@ Date.prototype.Format = function(fmt) {
 function regPageLink(target, appendTar){
     $(target).click(function(){
         var clickTarId = $(this).attr("id");
+        for (var i in g_pageLinkArr) {
+            if ( g_pageLinkArr[i] == clickTarId ) {
+                return;
+            }
+        }
+
         var pageLinkNum = g_rainbow.length;
 
         var htmlStr = '\
@@ -280,7 +286,7 @@ function regPageLink(target, appendTar){
         $(this).children().find(".grey-text").attr("style", "color:" + curColor + ";");
 
         //keep balance
-        if (pageLinkNum <= g_pageLinkIndex + 1) {
+        if (pageLinkNum <= g_pageLinkArr.length) {
             $("#page-link").children()[0].remove();
 
             //clear over-weight marked color
