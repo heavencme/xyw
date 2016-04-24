@@ -258,8 +258,8 @@ Date.prototype.Format = function(fmt) {
 function regPageLink(target, insertAfterTar){
     $(target).click(function(){
         var htmlStr = '\
-            <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light center z-depth-2" style="background:dairy-link-color"> \
-                <i class="page-link">dairy-index</i> \
+            <a href="#dairy-index" class="page-link btn-floating btn-small waves-effect waves-light centre z-depth-2" style="background:dairy-link-color"> \
+                dairy-index \
             </a>';
 
         htmlStr = htmlStr.replace( /dairy-index/g, $(this).attr("id") ); 
