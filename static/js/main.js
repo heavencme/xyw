@@ -263,8 +263,6 @@ Date.prototype.Format = function(fmt) {
 function regPageLink(target, appendTar){
     $(target).click(function(){
         var clickTarId = $(this).attr("id");
-        var pageLinkNum = g_rainbow.length;
-
         //guard judge
         for (var i in g_pageLinkArr) {
             if ( g_pageLinkArr[i] == clickTarId ) {
@@ -273,8 +271,6 @@ function regPageLink(target, appendTar){
                     .attr("style", "");
 
                 g_pageLinkArr.splice(i,1);
-                flushPageLinkToCookie();
-
                 $("#page-link").children()[i].remove();
                 g_pageLinkIndex --;
 
@@ -282,7 +278,26 @@ function regPageLink(target, appendTar){
             }
         }
 
-        //keep balance and guard
+        var pageLinkNum = g_rainbow.length;
+
+        var htmlStr = '\
+            <a href="#dairy-index" class="btn-floating btn-small waves-effect waves-light z-depth-2" style="background:dairy-link-color"> \
+                dairy-index \
+            </a>';
+
+        var curColor = g_rainbow[g_pageLinkIndex];    
+        
+        htmlStr = htmlStr.replace( /dairy-index/g, clickTarId); 
+        htmlStr = htmlStr.replace( /dairy-link-color/g, curColor);
+
+        $(appendTar).append(htmlStr);
+
+        g_pageLinkArr.push(clickTarId);
+
+        //marked color
+        $(this).children().find(".grey-text").attr("style", "background:" + curColor + ";");
+
+        //keep balance
         if (pageLinkNum <= g_pageLinkArr.length) {
             $("#page-link").children()[0].remove();
 
@@ -292,12 +307,10 @@ function regPageLink(target, appendTar){
                 .attr("style", "");
 
             g_pageLinkArr.shift();
-            flushPageLinkToCookie();
-
-            return;
         }
-
-        createOrSetPageLink(clickTarId, appendTar);
+        
+        g_pageLinkIndex ++;
+        g_pageLinkIndex %= pageLinkNum;
     });
 }
 
@@ -321,7 +334,7 @@ function genPageLink(appendTar) {
     if(pageLinkArrFromCookie && pageLinkArrFromCookie.length > 0){
         g_pageLinkArr = pageLinkArrFromCookie;
         for (var i in g_pageLinkArr) {
-            createOrSetPageLink(g_pageLinkArr[i], appendTar);
+            //createOrSetPageLink(g_pageLinkArr[i], appendTar);
         }
         
     }
