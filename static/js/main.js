@@ -221,7 +221,7 @@ function genPage(dairyArr) {
         htmlStr = templateStr.replace(/dairy-time/g, dairyArr[i]['time']);
         htmlStr = htmlStr.replace(/dairy-msg/g, dairyArr[i]['msg']);
         htmlStr = htmlStr.replace(/dairy-id/g, dairyArr[i]['_id']); 
-        htmlStr = htmlStr.replace( /dairy-index/g, (i+1) ); 
+        htmlStr = htmlStr.replace( /dairy-index/g, i); 
 
         $("#lh-main").prepend(htmlStr);   
     }
