@@ -280,6 +280,8 @@ function regPageLink(target, appendTar){
                     g_pageLinkIndex = g_rainbow.length - 1;
                 }
 
+                console.log('regPageLink guard');
+
                 return;
             }
         }
@@ -427,9 +429,9 @@ Touch.prototype={
     touchEnd:function(){
         var nowSec = new Date().getTime();
         console.log("-------------")
-        console.log("time:" + (nowSec - this.startSec));
-        console.log("this.clickTriggered == 0 : " + (this.clickTriggered == 0));
-        console.log("event.target == this.startTar : "+(event.target == this.startTar));
+        //console.log("time:" + (nowSec - this.startSec));
+        //console.log("this.clickTriggered == 0 : " + (this.clickTriggered == 0));
+        //console.log("event.target == this.startTar : "+(event.target == this.startTar));
 
         if (this.clickTriggered == 0 && event.target == this.startTar && ( (nowSec - this.startSec) > 3 ) ) {
             console.log("trigger!!!");
