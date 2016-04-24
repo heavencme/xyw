@@ -419,8 +419,7 @@ Touch.prototype={
         createRipple(x,y);
 
         //moving not click
-        console.log("x: " + Math.abs(x - this.startTar.x));
-        console.log("y: " + Math.abs(y - this.startTar.y));
+        alert("x: " + Math.abs(x - this.startTar.x)+"-- y: " + Math.abs(y - this.startTar.y));
     },
     touchEnd:function(){
         var nowSec = new Date().getTime();
