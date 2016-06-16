@@ -108,7 +108,7 @@ function addRippleEffect(e) {
 }
 
 /*time count down*/
-setInterval("freshCountDown()", 1000);
+var secInterval = setInterval("freshCountDown()", 1000);
 
 function createRipple(x, y) {
     var ripple = $('<div class="ripple-outer"></div><div class="ripple-inner"></div>');
