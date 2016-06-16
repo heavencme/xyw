@@ -108,7 +108,7 @@ function addRippleEffect(e) {
 }
 
 /*time count down*/
-setInterval("freshCountDown('count-down', 2016, 7, 13, 18)", 1000);
+setInterval("freshCountDown()", 1000);
 
 function createRipple(x, y) {
     var ripple = $('<div class="ripple-outer"></div><div class="ripple-inner"></div>');
@@ -464,7 +464,13 @@ Touch.prototype={
     }
 }
 
-function freshCountDown(tarId, year, month, date, hour) {
+function freshCountDown() {
+    var tarId = 'count-down';
+    var year = 2016;
+    var month = 7;
+    var date = 13;
+    var hour = 18;
+
     var timeNow = new Date();
     var dayLeft = ( year - timeNow.getFullYear() ) * 365 
         + ( month - ( timeNow.getMonth() + 1 ) ) * 30
