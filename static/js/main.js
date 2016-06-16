@@ -485,7 +485,7 @@ function freshCountDown() {
 }
 
 /*time count down*/
-var secInterval = setInterval("freshCountDown()", 1000);
+var secInterval = setInterval(freshCountDown, 1000);
 
  
 /** end **/
