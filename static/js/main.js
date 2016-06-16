@@ -107,6 +107,9 @@ function addRippleEffect(e) {
     return false;
 }
 
+/*time count down*/
+setInterval("freshCountDown('count-down', 2016, 7, 13, 18)", 1000);
+
 function createRipple(x, y) {
     var ripple = $('<div class="ripple-outer"></div><div class="ripple-inner"></div>');
     ripple.css({
@@ -459,6 +462,22 @@ Touch.prototype={
             this.clickTriggered ++;
         }
     }
+}
+
+function freshCountDown(tarId, year, month, date, hour) {
+    var timeNow = new Date();
+    var dayLeft = ( year - timeNow.getFullYear() ) * 365 
+        + ( month - ( timeNow.getMonth() + 1 ) ) * 30
+        + ( date - timeNow.getDate() );
+    var hourLeft = hour - timeNow.getHours();
+
+    if(hourLeft < 0){
+        hourLeft = 24 + hourLeft;
+        dayLeft --;
+    }
+
+
+    $("#"+tarId).text(dayLeft + '-' + hourLeft + ':' + minuteLeft + ':' + secondLeft);
 }
 
  
