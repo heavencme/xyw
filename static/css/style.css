@@ -94,6 +94,11 @@
   z-index: 2016;
 }
 
+#count-down {
+  font-size: 0.6em;
+  font-weight: 120;
+}
+
 #home {
   padding-top: 81px;
 }
