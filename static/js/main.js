@@ -465,8 +465,8 @@ Touch.prototype={
 function freshCountDown() {
     var tarId = 'count-down';
     var year = 2016;
-    var month = 6;
-    var date = 17;
+    var month = 7;
+    var date = 13;
     var hour = 18;
     var minute = 0;
     var second = 0;
