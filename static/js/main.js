@@ -486,7 +486,7 @@ function freshCountDown() {
     }
 
 
-    $("#"+tarId).text(dayLeft + '-' + hourLeft + ':' + minuteLeft + ':' + secondLeft);
+    $("#"+tarId).text(dayLeft + '天' + hourLeft + '时' + minuteLeft + '分' + secondLeft + '秒');
 }
 
 /*time count down*/
