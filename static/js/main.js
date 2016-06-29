@@ -466,7 +466,7 @@ function freshCountDown() {
     var tarId = 'count-down';
     var year = 2016;
     var month = 7;
-    var date = 13;
+    var date = 18;
     var hour = 18;
     var minute = 0;
     var second = 0;
