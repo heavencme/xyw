@@ -485,6 +485,10 @@ function freshCountDown() {
         dayLeft --;
     }
 
+    dayLeft = Math.abs(dayLeft);
+    hourLeft = Math.abs(hourLeft);
+    minuteLeft = Math.abs(minuteLeft);
+    secondLeft = Math.abs(secondLeft);
 
     $("#"+tarId).text(dayLeft + '天' + hourLeft + '时' + minuteLeft + '分' + secondLeft + '秒');
 }
