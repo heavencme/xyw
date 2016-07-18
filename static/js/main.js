@@ -472,7 +472,7 @@ function freshCountDown() {
     var second = 0;
 
     var timeNow = new Date();
-    var dayLeft = (timeNow.getFullYear() － year) * 365 
+    var dayLeft = (timeNow.getFullYear() － year) * 365
         + ( (timeNow.getMonth() + 1 ) - month ) * 31
         + ( timeNow.getDate() - date );
     
