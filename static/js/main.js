@@ -472,13 +472,13 @@ function freshCountDown() {
     var second = 0;
 
     var timeNow = new Date();
-    var dayLeft = ( year - timeNow.getFullYear() ) * 365 
-        + ( month - ( timeNow.getMonth() + 1 ) ) * 30
-        + ( date - timeNow.getDate() );
+    var dayLeft = (timeNow.getFullYear() － year) * 365 
+        + ( (timeNow.getMonth() + 1 ) - month ) * 31
+        + ( timeNow.getDate() - date );
     
-    var secondLeft = 60 - timeNow.getSeconds();
-    var minuteLeft = 60 - 1 - timeNow.getMinutes();
-    var hourLeft = hour - 1 - timeNow.getHours();
+    var secondLeft = timeNow.getSeconds();
+    var minuteLeft = timeNow.getMinutes();
+    var hourLeft = timeNow.getHours() - 18;
 
     if(hourLeft < 0){
         hourLeft = 24 + hourLeft;
