@@ -73,7 +73,7 @@ router.post('/data/write', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     var recData = {};
 
-    //console.log(req.body);
+    console.log(req.body);
     writeLog('dataWrite', ua);
     
     var reqData = req.body;
