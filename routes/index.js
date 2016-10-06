@@ -81,6 +81,9 @@ router.post('/data/write', function(req, res, next) {
 
     for (var idx in userConfig) {
         if (userConfig[idx].passCode == reqData.passCode) {
+
+            console.log("find passcode ok");
+
             recData.userName = userConfig[idx].userName;
             recData.time = reqData.time;
             recData.msg = reqData.msg;

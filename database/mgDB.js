@@ -11,6 +11,9 @@ function mgDB(dbName, id) {
 /** insert method **/
 mgDB.prototype.insert = function(event, act, collection, docArr, responseObj) {
 	// connect to database
+
+	console.log("into insert functino");
+
 	this.mgClient.connect( this.mongoUri, function(err, db) {
 		if (err) {
 			throw err;
@@ -20,12 +23,16 @@ mgDB.prototype.insert = function(event, act, collection, docArr, responseObj) {
 		// choose the collection
 		var cl = db.collection( collection );
 
+		console.log("connect ok");
+
 		// insert opration
 		cl.insert(docArr, function(err, result) {
 			if (err) {
 				throw err;
 				return;
 			}
+
+			console.log("insert operation" + result);
 
 			if (result) {
 				// pack the data
