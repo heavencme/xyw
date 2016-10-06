@@ -72,21 +72,17 @@ function getData( d ){
 router.post('/data/write', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     var recData = {};
+    var passCodeOk = false;
 
-    console.log(req.body);
+    //console.log(req.body);
     writeLog('dataWrite', ua);
     
     var reqData = req.body;
     var recData = {};
 
     for (var idx in userConfig) {
-        console.log("wr: ");
-        console.log("idx: " + idx);
-        console.log("userConfig: " + userConfig);
-
         if (userConfig[idx].passCode == reqData.passCode) {
-
-            console.log("find passcode ok");
+            passCodeOk = true;
 
             recData.userName = userConfig[idx].userName;
             recData.time = reqData.time;
@@ -98,7 +94,8 @@ router.post('/data/write', function(req, res, next) {
         }
     }
 
-    if(recData.length < 1) {
+    // passCode not found in userConfig.json
+    if( (userConfig.length < 1) || (!passCodeOk) ) {
         res.json({
             status: 'failed',
             msg: 'passcodewrong'
@@ -134,8 +131,6 @@ router.post('/data/askme', function(req, res, next) {
 function writeLog(fileName, data) {
     //var str = data.toString();
     var now = Date();
-
-    console.log(data);
 
     fs.appendFile('log/' + fileName + '.log', now + ' |||| ' + data + '\n', function (err) {
         if (err) throw err;

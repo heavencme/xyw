@@ -45,7 +45,7 @@ function initDairy() {
             }
         },
         error: function(e){
-            alert('呃……服务器被我关了');
+            alert('呃……服务器出问题了');
         }
     });
 }

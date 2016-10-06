@@ -60,7 +60,7 @@ $('#modal-bug-submit').click(function(e){
         $('#modal-bug').closeModal();
     },
     error: function(e){
-        alert('呃……服务器被我关了');
+        alert('呃……服务器出问题了');
     }
   });
 });
@@ -90,7 +90,7 @@ $('#send-hongbao').click(function(){
             window.location = '/bao/' + ret.location + '.html#' + ret.hash;
         },
         error: function(e){
-            alert('呃……服务器被我关了');
+            alert('呃……服务器出问题了');
         }
     });
 });
@@ -169,7 +169,7 @@ $('#hongbao-check-btn').click(function(e){
             sendAlsoIconShake();
         },
         error: function(e){
-            alert('呃……服务器被我关了');
+            alert('呃……服务器出问题了');
         }
     });
 

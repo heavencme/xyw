@@ -49,7 +49,7 @@ $('#modal-bug-submit').click(function(e){
         $('#modal-bug').closeModal();
     },
     error: function(e){
-        alert('呃……服务器被我关了');
+        alert('呃……服务器出问题了');
     }
   });
 });
@@ -78,7 +78,7 @@ function initDairy() {
             genPageLink("#page-link");
         },
         error: function(e){
-            alert('呃……服务器被我关了');
+            alert('呃……服务器出问题了');
         }
     });
 }
