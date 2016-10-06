@@ -80,6 +80,10 @@ router.post('/data/write', function(req, res, next) {
     var recData = {};
 
     for (var idx in userConfig) {
+        console.log("wr: ");
+        console.log("idx: " + idx);
+        console.log("userConfig: " + userConfig);
+
         if (userConfig[idx].passCode == reqData.passCode) {
 
             console.log("find passcode ok");
