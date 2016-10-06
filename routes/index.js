@@ -128,6 +128,8 @@ function writeLog(fileName, data) {
     //var str = data.toString();
     var now = Date();
 
+    console.log(data);
+
     fs.appendFile('log/' + fileName + '.log', now + ' |||| ' + data + '\n', function (err) {
         if (err) throw err;
     });
